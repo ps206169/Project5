@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF-P5", "WPF-P5\WPF-P5.csproj", "{C29A3B5A-CA2B-46C6-A2A7-2CBE4D5A3A6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C29A3B5A-CA2B-46C6-A2A7-2CBE4D5A3A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29A3B5A-CA2B-46C6-A2A7-2CBE4D5A3A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29A3B5A-CA2B-46C6-A2A7-2CBE4D5A3A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29A3B5A-CA2B-46C6-A2A7-2CBE4D5A3A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E3A59C5-4C0B-4971-9258-06C5F82C7E30}
+	EndGlobalSection
+EndGlobal
