@@ -14,7 +14,7 @@ class SportsController extends Controller
      */
     public function index()
     {
-        //
+        return sports::All();
     }
 
     /**
@@ -25,7 +25,7 @@ class SportsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return sports::create($request->all());
     }
 
     /**
@@ -36,7 +36,7 @@ class SportsController extends Controller
      */
     public function show(sports $sports)
     {
-        //
+        return $sports;
     }
 
     /**
@@ -48,7 +48,8 @@ class SportsController extends Controller
      */
     public function update(Request $request, sports $sports)
     {
-        //
+        $sports->update($request->all());
+        return $sports;
     }
 
     /**
@@ -59,6 +60,6 @@ class SportsController extends Controller
      */
     public function destroy(sports $sports)
     {
-        //
+        $sports->delete();
     }
 }
