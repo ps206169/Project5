@@ -9,6 +9,7 @@ class difficulties extends Model
 {
     use HasFactory;
     protected $table = 'difficulties';
+    public $timestamps = false;
     protected $fillable = [
         'id',
         'name',

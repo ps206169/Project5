@@ -9,6 +9,7 @@ class Description extends Model
 {
     use HasFactory;
     protected $table = 'descriptions';
+    public $timestamps = false;
     protected $fillable = [
         'id',
         'description',

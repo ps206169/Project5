@@ -9,6 +9,7 @@ class sports extends Model
 {
     use HasFactory;
     protected $table = 'sports';
+    public $timestamps = false;
     protected $fillable = [
         'id',
         'name',

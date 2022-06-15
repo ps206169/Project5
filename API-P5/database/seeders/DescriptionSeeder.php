@@ -16,16 +16,16 @@ class DescriptionSeeder extends Seeder
     public function run()
     {
         $description = [
-            ['id' => 1, 'name' => 'Squat'],
-            ['id' => 2, 'name' => 'Push-up'],
-            ['id' => 3, 'name' => 'Dip'],
-            ['id' => 4, 'name' => 'Plank'],
-            ['id' => 5, 'name' => 'Paardentrap'],
-            ['id' => 6, 'name' => 'Mountain climber'],
-            ['id' => 7, 'name' => 'Burpee'],
-            ['id' => 8, 'name' => 'Lunge'],
-            ['id' => 9, 'name' => 'Wall sit'],
-            ['id' => 10, 'name' => 'Crunch'],
+            ['id' => 1, 'description' => 'Squat'],
+            ['id' => 2, 'description' => 'Push-up'],
+            ['id' => 3, 'description' => 'Dip'],
+            ['id' => 4, 'description' => 'Plank'],
+            ['id' => 5, 'description' => 'Paardentrap'],
+            ['id' => 6, 'description' => 'Mountain climber'],
+            ['id' => 7, 'description' => 'Burpee'],
+            ['id' => 8, 'description' => 'Lunge'],
+            ['id' => 9, 'description' => 'Wall sit'],
+            ['id' => 10, 'description' => 'Crunch'],
         ];
 
         foreach($description as $description){
