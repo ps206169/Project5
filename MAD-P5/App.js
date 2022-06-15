@@ -1,12 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, TabBarIOSItem, Text, View } from 'react-native';
+import { createStackNavigator } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-export default function App() {
+const Tab = createMaterialBottomTabNavigator();
+const stack = createStackNavigator();
+
+const MyTabs = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="makkelijk" />
+      <Tab.Screen name="gemiddeld" />
+      <Tab.Screen name="moeilijk" />
+    </Tab.Navigator>
+  )
+}
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
   );
 }
 
@@ -18,3 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
