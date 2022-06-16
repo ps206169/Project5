@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             DescriptionSeeder::class,
             DifficultiesSeeder::class,
             SportsSeeder::class,
+            LanguageSeeder::class,
         ]);
     }
 }
