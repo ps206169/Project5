@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Description extends Model
+class languages extends Model
 {
     use HasFactory;
-    protected $table = 'descriptions';
+    protected $table = 'languages';
     public $timestamps = false;
     protected $fillable = [
         'id',
-        'description',
-        'sportId',
-        'difficultyId',
-        'languageId',
+        'language',
     ];
 }
