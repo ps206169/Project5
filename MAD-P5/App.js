@@ -12,7 +12,6 @@ const MyTabs = () => {
     <Tab.Navigator>
       <Tab.Screen name="makkelijk" />
       <Tab.Screen name="gemiddeld" />
-      <Tab.Screen name="moeilijk" />
     </Tab.Navigator>
   )
 }
