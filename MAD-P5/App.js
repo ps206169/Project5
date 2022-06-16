@@ -7,16 +7,34 @@ import makkelijkScreen from './components/makkelijkScreen';
 import makkelijkDetailScreen from './components/makkelijkDetailScreen';
 import gemiddeldScreen from './components/gemiddeldScreen';
 import gemiddeldDetailScreen from './components/gemiddeldDetailScreen';
+import { StackView } from '@react-navigation/stack';
 
 
 const Tab = createMaterialBottomTabNavigator();
-const stack = createStackNavigator();
+const Stack = createStackNavigator();
 
+const makkelijkStack = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="makkelijkListStack" component={makkelijkScreen} />
+      <Stack.Screen name="makkelijkDetailStack" component={makkelijkDetailScreen} />
+    </Stack.Navigator>
+  )
+}
+
+const gemiddeldStack = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="gemiddeldListStack" component={gemiddeldScreen} />
+      <Stack.Screen name="gemiddeldDetailStack" component={gemiddeldDetailScreen} />
+    </Stack.Navigator>
+  )
+}
 const MyTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="makkelijk" component={makkelijkScreen} />
-      <Tab.Screen name="gemiddeld" component={gemiddeldScreen} />
+      <Tab.Screen name="makkelijk" component={makkelijkStack} />
+      <Tab.Screen name="gemiddeld" component={gemiddeldStack} />
     </Tab.Navigator>
   )
 }
