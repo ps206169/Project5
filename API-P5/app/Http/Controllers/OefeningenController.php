@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Description;
+use App\Models\oefeningen;
 use Illuminate\Http\Request;
 
-class DescriptionController extends Controller
+class OefeningenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DescriptionController extends Controller
      */
     public function index()
     {
-        return Description::All(); 
+        //
     }
 
     /**
@@ -25,41 +25,40 @@ class DescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        return Description::create($request->all());
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Description  $description
+     * @param  \App\Models\oefeningen  $oefeningen
      * @return \Illuminate\Http\Response
      */
-    public function show(Description $description)
+    public function show(oefeningen $oefeningen)
     {
-        return $description;
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Description  $description
+     * @param  \App\Models\oefeningen  $oefeningen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Description $description)
+    public function update(Request $request, oefeningen $oefeningen)
     {
-        $description->update($request->all());
-        return $description;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Description  $description
+     * @param  \App\Models\oefeningen  $oefeningen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Description $description)
+    public function destroy(oefeningen $oefeningen)
     {
-        $description->delete();
+        //
     }
 }
