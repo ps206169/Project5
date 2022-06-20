@@ -7,6 +7,41 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <!-- This rectangle is painted with a diagonal linear gradient. -->
+        <Rectangle Width="800" Height="450" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF80AB" Offset="0.0" />
+                    <GradientStop Color="#6A1B9A" Offset="0.25" />
+                    <GradientStop Color="#4A148C" Offset="0.75" />
+                    <GradientStop Color="#3949AB" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontSize="20px">Summa Move</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <ListView  ItemsSource="{Binding Source={StaticResource SportData}}">
+            <ListView.View>
+
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Sport Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}"/>
+                        <GridViewColumnHeader>Name </GridViewColumnHeader>
+                    <GridViewColumnHeader.ContextMenu>
+                        <ContextMenu MenuItem.Click="NameCM_click">
+                            <MenuItem Header="Ascending" />
+                            <MenuItem Header="Descending" />
+                        </ContextMenu>
+                    </GridViewColumnHeader.ContextMenu>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
