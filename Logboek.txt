@@ -7,3 +7,8 @@ Jordy = Planning opgezethttps://github.com/ps206169/Project5
 Timo = Heeft een scrumboard opgezet en gedeeltelijk ingevuld, Heeft aan de API gewerkt.
 Lemuel = Heeft aan het wpf gedeelte gewerkt.
 Jordy = Heeft aan de app gewerkt, aan de API gewerkt en heeft geholpen met het scrumboard.
+
+16-06-2022
+Timo = Scrumboard afgemaakt. Gewerkt aan API.
+Lemuel = gewerkt aan de beheerder applicatie.
+Jordy = gewerkt aan API en aan de mobiele Applicatie.
