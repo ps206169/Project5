@@ -16,16 +16,16 @@ class OefeningenSeeder extends Seeder
     public function run()
     {
         $oefeningen = [
-            ['id' => 1, 'nameNL' => 'Squat', 'nameEN' => 'Squat'],
-            ['id' => 2, 'nameNL' => 'Push-up', 'nameEN' => 'Push-up'],
-            ['id' => 3, 'nameNL' => 'Dip', 'nameEN' => 'Dip'],
-            ['id' => 4, 'nameNL' => 'Plank', 'nameEN' => 'Plank'],
-            ['id' => 5, 'nameNL' => 'Paardentrap', 'nameEN' => 'Horse kick'],
-            ['id' => 6, 'nameNL' => 'Mountain climber', 'nameEN' => 'Mountain climber'],
-            ['id' => 7, 'nameNL' => 'Burpee', 'nameEN' => 'Burpee'],
-            ['id' => 8, 'nameNL' => 'Lunge', 'nameEN' => 'Lunge'],
-            ['id' => 9, 'nameNL' => 'Wall sit', 'nameEN' => 'Wall sit'],
-            ['id' => 10, 'nameNL' => 'Crunch', 'nameEN' => 'Crunch'],
+            ['id' => 1, 'nameNL' => 'Squat', 'nameEN' => 'Squat', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 2, 'nameNL' => 'Push-up', 'nameEN' => 'Push-up', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 3, 'nameNL' => 'Dip', 'nameEN' => 'Dip', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 4, 'nameNL' => 'Plank', 'nameEN' => 'Plank', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 5, 'nameNL' => 'Paardentrap', 'nameEN' => 'Horse kick', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 6, 'nameNL' => 'Mountain climber', 'nameEN' => 'Mountain climber', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 7, 'nameNL' => 'Burpee', 'nameEN' => 'Burpee', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 8, 'nameNL' => 'Lunge', 'nameEN' => 'Lunge', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 9, 'nameNL' => 'Wall sit', 'nameEN' => 'Wall sit', 'instructionNL' => '', 'instructionEN' => ''],
+            ['id' => 10, 'nameNL' => 'Crunch', 'nameEN' => 'Crunch', 'instructionNL' => '', 'instructionEN' => ''],
         ];
 
         foreach($oefeningen as $oefening){

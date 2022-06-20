@@ -22,10 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            DescriptionSeeder::class,
-            DifficultiesSeeder::class,
-            SportsSeeder::class,
-            LanguageSeeder::class,
+            OefeningenSeeder::class,
+            PrestatiesSeeder::class,
         ]);
     }
 }

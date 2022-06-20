@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nameNL');
             $table->string('nameEN');
+            $table->string('instructionNL');
+            $table->string('instructionEN');
         });
     }
 
