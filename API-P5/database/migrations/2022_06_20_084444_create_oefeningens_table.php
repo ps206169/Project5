@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('oefeningen', function (Blueprint $table) {
             $table->id();
-            $table->string('language');
+            $table->string('nameNL');
+            $table->string('nameEN');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists('oefeningen');
     }
 };
