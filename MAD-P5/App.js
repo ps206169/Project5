@@ -1,12 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, TabBarIOSItem, Text, View } from 'react-native';
+import { createStackNavigator } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import makkelijkScreen from './components/makkelijkScreen';
+import makkelijkDetailScreen from './components/makkelijkDetailScreen';
+import gemiddeldScreen from './components/gemiddeldScreen';
+import gemiddeldDetailScreen from './components/gemiddeldDetailScreen';
+import { StackView } from '@react-navigation/stack';
 
-export default function App() {
+
+const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const makkelijkStack = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="makkelijkListStack" component={makkelijkScreen} />
+      <Stack.Screen name="makkelijkDetailStack" component={makkelijkDetailScreen} />
+    </Stack.Navigator>
+  )
+}
+
+const gemiddeldStack = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="gemiddeldListStack" component={gemiddeldScreen} />
+      <Stack.Screen name="gemiddeldDetailStack" component={gemiddeldDetailScreen} />
+    </Stack.Navigator>
+  )
+}
+const MyTabs = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="makkelijk" component={makkelijkStack} />
+      <Tab.Screen name="gemiddeld" component={gemiddeldStack} />
+    </Tab.Navigator>
+  )
+}
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
   );
 }
 
@@ -18,3 +55,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
