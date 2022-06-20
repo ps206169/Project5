@@ -12,3 +12,8 @@ Jordy = Heeft aan de app gewerkt, aan de API gewerkt en heeft geholpen met het s
 Timo = Scrumboard afgemaakt. Gewerkt aan API.
 Lemuel = gewerkt aan de beheerder applicatie.
 Jordy = gewerkt aan API en aan de mobiele Applicatie.
+
+Planning week 2
+Timo  = Verdiepen Eloquent, mogelijk beginnen eloquent conversie
+Jordy = Instructies oefeningen, api live, mad flatlist binnen tabs, mogelijk stack detail view
+Lemuel= UI, databaseconnection, 
