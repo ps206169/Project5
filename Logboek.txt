@@ -17,3 +17,8 @@ Planning week 2
 Timo  = Verdiepen Eloquent, mogelijk beginnen eloquent conversie
 Jordy = Instructies oefeningen, api live, mad flatlist binnen tabs, mogelijk stack detail view
 Lemuel= UI, databaseconnection, 
+
+20-06-2022
+Jordy heeft de models en migrations versimpeld en aan het design van de app gewerkt.
+Lemuel is verder gegaan met de beheerder applicatie.
+Timo heeft aan de wireframes gewerkt en onderzoek gedaan naar eloquent.
