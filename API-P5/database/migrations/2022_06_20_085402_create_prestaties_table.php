@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('prestaties', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('userId')->constrained('users');
+            $table->foreignId('exerciseId')->constrained('oefeningen');
+            $table->string('startedAt');
+            $table->string('finishedAt');
+            $table->string('amount');
         });
     }
 
