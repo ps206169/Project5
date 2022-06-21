@@ -14,7 +14,8 @@ class OefeningenController extends Controller
      */
     public function index()
     {
-        //
+        return "test";
+        return oefeningen::all();
     }
 
     /**
