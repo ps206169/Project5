@@ -22,3 +22,8 @@ Lemuel= UI, databaseconnection,
 Jordy heeft de models en migrations versimpeld en aan het design van de app gewerkt.
 Lemuel is verder gegaan met de beheerder applicatie.
 Timo heeft aan de wireframes gewerkt en onderzoek gedaan naar eloquent.
+
+21-06-2022
+Jordy heeft de api grotendeels herschreven in voorbereiding van eloquent. Hij heeft ook al het aanmaken van een token toegepast. heeft de engelse instructies uitgebreid.
+Lemuel heeft aan de beheerder applicatie gewerkt en heeft de nederlandse instructie uitgebreid.
+Timo heeft de basis van de instructie geschreven en lemuel geholpen met errors in de code van de beheerder applicatie
