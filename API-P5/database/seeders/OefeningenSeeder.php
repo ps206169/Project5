@@ -17,11 +17,14 @@ class OefeningenSeeder extends Seeder
     {
         $oefeningen = [
             ['id' => 1, 'nameNL' => 'Squat', 'nameEN' => 'Squat',
-            'instructionNL' => 'Sta in een positie waarbij je knieën op schouderbreedte zijn.
-            Daarna zak je langzaam door je knieën totdat je knieën op een lijn staan met je tenen,
-            ga dan weer omhoog en herhaal de oefening',
+            'instructionNL' => '1. neem een positie waarbij je knieën op schouderbreedte zijn.
+            2. ga je lichtelijk door je knieën. 
+            3. Duw je billen naar achteren.
+            4. Ga daarna rustig diep door je knieën en zorg ervoor dat ze niet voorbij je tenen komen. 
+            5. Kom dan weer rustig omhoog.
+            6. Herhaal vanaf de eerste stap tot de gewenste hoeveelheid is gehaald.',
             'instructionEN' => '1. Take a position where your knees have them at shoulder width
-            2. Bend your knees slightly.
+            2. Bend your knees slightly. 
             3. Push your buttocks back.
             4. then go deep through your knees and make sure your knees do not go past your toes.
             5. Then slowly come back up.
