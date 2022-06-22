@@ -27,3 +27,8 @@ Timo heeft aan de wireframes gewerkt en onderzoek gedaan naar eloquent.
 Jordy heeft de api grotendeels herschreven in voorbereiding van eloquent. Hij heeft ook al het aanmaken van een token toegepast. heeft de engelse instructies uitgebreid.
 Lemuel heeft aan de beheerder applicatie gewerkt en heeft de nederlandse instructie uitgebreid.
 Timo heeft de basis van de instructie geschreven en lemuel geholpen met errors in de code van de beheerder applicatie
+
+22-06-2022
+Jordy bezig geweest met tokens, postman, api, heeft alvast een user story van api afgerond.
+Lemuel, bezig geweest met de beheerder applicatie.
+Timo, Heeft ook aan de tokens gewerkt, probeerd een tweede user story van api af te werken. heeft aan API gewerkt en heeft lemuel geholpen.
