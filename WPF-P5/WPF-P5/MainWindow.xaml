@@ -27,21 +27,5 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <ListView  ItemsSource="{Binding Source={StaticResource SportData}}">
-            <ListView.View>
-
-                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Sport Information">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}"/>
-                        <GridViewColumnHeader>Name </GridViewColumnHeader>
-                    <GridViewColumnHeader.ContextMenu>
-                        <ContextMenu MenuItem.Click="NameCM_click">
-                            <MenuItem Header="Ascending" />
-                            <MenuItem Header="Descending" />
-                        </ContextMenu>
-                    </GridViewColumnHeader.ContextMenu>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </Window>
