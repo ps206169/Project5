@@ -34,15 +34,16 @@ class PrestatiesController extends Controller
             ];
             return response()->json($content,200);
         } catch (\Throwable $th) {
-            Log::emergency(('prestaties', ['error' => $th-getMessage()]));
+            Log::emergency('werknemers', ['error' => $th->getMessage()]);
 
             $content = [
                 'success'   => false,
                 'data'      => null,
                 'foutmelding' => 'Gegevens kunnen niet getoond worden',
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                'token_type' => 'Bearer'
+                'token_type' => 'Bearer',
             ];
+            return response()->json($content,500);
         }
     }
 
@@ -54,7 +55,49 @@ class PrestatiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->user()->currentAccessToken()->delete();
+
+        try{
+            Log::info(
+                'prestaties toevoegen',
+                ['ip' => $request->ip(),
+                'data' => $request->all(),
+                'user' => $request->user()->email
+            ]);
+            $validator = Validator::make($request->all(), [
+                'email' => 'email',
+                'name' => 'required'
+            ]);
+            if ($validator->fails()){
+                Log::error("Prestatie toevoegen fout");
+                $content = [
+                    'success'   => false,
+                    'data'      => $request->all(),
+                    'foutmelding' => 'Data niet correct',
+                    'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+                return response()->json($content,400);
+            } else {
+                $content = [
+                    'success'   => true,
+                    'data'      => prestaties::create($request->all()),
+                    'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+                return response()->json($content, 201);
+            }
+        } catch (\throwable $th){
+            Log::emergency('Prestaties toevoegen', ['error' => $th->getMessage()]);
+            $content = [
+                'success'   => false,
+                'data'      => null,
+                'foutmelding' => 'Gegevens kunnen niet toegevoegd worden.',
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content,500);
+        }
     }
 
     /**
