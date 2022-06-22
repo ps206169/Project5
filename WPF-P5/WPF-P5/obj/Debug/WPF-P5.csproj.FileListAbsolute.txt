@@ -64,9 +64,7 @@ C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\bin\Debug\System.
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\bin\Debug\System.Memory.xml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\MainWindow.g.cs
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5_MarkupCompile.lref
-C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\MainWindow.baml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.g.resources
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF_P5.Properties.Resources.resources
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.GenerateResource.cache
