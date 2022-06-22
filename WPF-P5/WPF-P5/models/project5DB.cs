@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WPF_P5.models
 {
-    public class project5DB
+    public class Project5DB
     {
         private MySqlConnection _conn = new MySqlConnection(
           ConfigurationManager.ConnectionStrings["db"].ConnectionString

@@ -134,8 +134,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="models\prestaties.cs" />
-    <Compile Include="models\project5DB.cs" />
+    <Compile Include="models\Prestaties.cs" />
+    <Compile Include="models\Project5DB.cs" />
     <Compile Include="models\SportData.cs" />
     <Compile Include="Oefeningen.xaml.cs">
       <DependentUpon>Oefeningen.xaml</DependentUpon>

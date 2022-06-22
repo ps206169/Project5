@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_P5.models
 {
-     public class prestaties
+     public class Prestaties
     {
         private string name;
 

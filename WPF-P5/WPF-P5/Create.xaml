@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="Create" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+            <TextBlock Text="Naam Oefening" FontSize="30"/>
+            <TextBox Height="30px" Margin="0,0,0,10" />
+            <Button Height="40" VerticalAlignment="Bottom" Margin="20,10,20,40" Click="Button_Click">Create</Button>
+        </Grid>
+
+        <!-- This rectangle is painted with a diagonal linear gradient. -->
+        <Rectangle Width="800" Height="420" Grid.ColumnSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF80AB" Offset="0.0" />
+                    <GradientStop Color="#6A1B9A" Offset="0.25" />
+                    <GradientStop Color="#4A148C" Offset="0.75" />
+                    <GradientStop Color="#3949AB" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontSize="20px">Summa Move</TextBlock>
     </Grid>
 </Window>
