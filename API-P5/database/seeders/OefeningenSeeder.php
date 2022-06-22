@@ -16,27 +16,24 @@ class OefeningenSeeder extends Seeder
     public function run()
     {
         $oefeningen = [
-            ['id' => 1, 'nameNL' => 'Squat', 'nameEN' => 'Squat', 
-            'instructionNL' => '1. neem een positie waarbij je knieën op schouderbreedte zijn.
-            2. ga je lichtelijk door je knieën. 
-            3. Duw je billen naar achteren.
-            4. Ga daarna rustig diep door je knieën en zorg ervoor dat ze niet voorbij je tenen komen. 
-            5. Kom dan weer rustig omhoog.
-            6. Herhaal vanaf de eerste stap tot de gewenste hoeveelheid is gehaald.
-            ', 'instructionEN' => '1. Take a position where your knees have them at shoulder width
-            2. Bend your knees slightly. 
+            ['id' => 1, 'nameNL' => 'Squat', 'nameEN' => 'Squat',
+            'instructionNL' => 'Sta in een positie waarbij je knieën op schouderbreedte zijn.
+            Daarna zak je langzaam door je knieën totdat je knieën op een lijn staan met je tenen,
+            ga dan weer omhoog en herhaal de oefening',
+            'instructionEN' => '1. Take a position where your knees have them at shoulder width
+            2. Bend your knees slightly.
             3. Push your buttocks back.
             4. then go deep through your knees and make sure your knees do not go past your toes.
             5. Then slowly come back up.
             6. Repeat from the fourth step desired amount is reached.'],
-            ['id' => 2, 'nameNL' => 'Push-up', 'nameEN' => 'Push-up', 
-            'instructionNL' => '1. Ga met je buik op de grond liggen en met de handen op de grond. 
+            ['id' => 2, 'nameNL' => 'Push-up', 'nameEN' => 'Push-up',
+            'instructionNL' => '1. Ga met je buik op de grond liggen en met de handen op de grond.
             2. Zet je handen tenminste op schouderbreedte neer met de elle bogen licht naar binnen gebogen.
             3. Strek je armen waardoor je lichaam omhoog komt met maximale kracht van je borstspieren en triceps.
             4. Span goed je borstspieren aan als je boven bent.
             5. Laat je daarna weer langzaam terug zakken en houd gedurende de hele oefening je lichaam recht.
             6. Houd de onderste positie een seconde vast zodat je de spanning op de borstspieren voelt.
-            7. Herhaal vanaf stap drie totdat de gewenste hoeveelheid push-ups is bereikt. 
+            7. Herhaal vanaf stap drie totdat de gewenste hoeveelheid push-ups is bereikt.
             ', 'instructionEN' => '1. Lie with your stomach on the floor and hands on the floor.
             2. Place your hands at least shoulder-width apart with the elbows slightly bent inward.
             3. Straighten your arms causing your body to rise with maximum strength from your pecs and triceps.
@@ -67,9 +64,9 @@ class OefeningenSeeder extends Seeder
             4. Keep your body as straight as possible.
             5. Hold until you reach your desired time.'],
             ['id' => 5, 'nameNL' => 'Paardentrap', 'nameEN' => 'Horse kick', 'instructionNL' => '1. Ga op elle bogen en knieën op de grond liggen.
-            2. Zorg dat je met je gezicht naar de grond gericht bent. 
-            3. Strek dan je rechterbeen naar achteren.( Pas op dat je de beweging niet overdrijft, want dan ga je te veel vanuit je onderrug bewegen.) 
-            4. Houd je been een paar tellen gestrekt en kom dan weer terug in de oorspronkelijke positie. 
+            2. Zorg dat je met je gezicht naar de grond gericht bent.
+            3. Strek dan je rechterbeen naar achteren.( Pas op dat je de beweging niet overdrijft, want dan ga je te veel vanuit je onderrug bewegen.)
+            4. Houd je been een paar tellen gestrekt en kom dan weer terug in de oorspronkelijke positie.
             5. Herhaal de beweging vervolgens met links.
             6. Herhaal daarna weer vanaf stap drie tot je je gewenste hoeveelheid bereikt hebt.
             ', 'instructionEN' => ' 1. Lie on the floor on your elbows and knees.
@@ -94,7 +91,7 @@ class OefeningenSeeder extends Seeder
             2.zet met je lichaamsgewicht wat druk op je hielen en laat je armen langs je lichaam hangen.
             3. Druk je heupen naar achteren, buig je knieën en zak met je lichaam langzaam in een squat.
             4. Plaats je handen op de vloer. Zet je handen zo neer dat ze in een rechte lijn met je voeten zijn. Verleg je gewicht op je handen.
-            5. Probeer in een soepele beweging je voeten naar achter te schoppen, terwijl je op de bal van je voet landt. Nu zou je je in een plankpositie moeten bevinden. Het is de bedoeling dat je lichaam nu een rechte lijn vormt van je hoofd tot je hielen. 
+            5. Probeer in een soepele beweging je voeten naar achter te schoppen, terwijl je op de bal van je voet landt. Nu zou je je in een plankpositie moeten bevinden. Het is de bedoeling dat je lichaam nu een rechte lijn vormt van je hoofd tot je hielen.
             6. Spring terug zodat je voeten net langs je handen landen.(Aan de buitenkant van je handen.)
             7. Reik met je handen boven je hoofd en spring met een explosieve sprong de lucht in.
             8. Land op je voeten en laat je meteen weer in een squatpositie afzakken. Hier begint namelijk de herhaling van deze oefening.
@@ -153,4 +150,3 @@ class OefeningenSeeder extends Seeder
         }
     }
 }
- 
