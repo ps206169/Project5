@@ -110,10 +110,10 @@ class PrestatiesController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
         try{
-            $content = [ 
+            $content = [
                 'succes' => true,
                 'data'   => $prestaties,
-                'access_token' => auth()->user()-createToken('API Token')->plainTextToken,
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
             return response()->json($content, 200);
@@ -142,7 +142,7 @@ class PrestatiesController extends Controller
         $request->user()->currentAccessToken()->delete();
         try {
             Log::info('Prestatie wijziging', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
-           
+
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'email',
@@ -175,7 +175,7 @@ class PrestatiesController extends Controller
                 'foutmelding' => 'Gegevens kunnen niet gewijzigd worden.',
                 'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
-                
+
             ];
             return response()->json($content, 500);
         }
@@ -197,10 +197,10 @@ class PrestatiesController extends Controller
             $content = [
                 'succes' => true,
                 'data'   => $prestaties,
-                'access_token' => auth()->user()-createToken('API Token')->plainTextToken,
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
-            return response()-json($content, 202);
+            return response()->json($content, 202);
           }
           catch(\Throwable $th){
             Log::emergency('Prestaties verwijderen', ['error' => $th->getMessage()]);

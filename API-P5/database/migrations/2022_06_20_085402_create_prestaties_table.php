@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('prestaties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('userId')->constrained('users');
+            $table->unsignedBigInteger('userId');
             $table->foreignId('exerciseId')->constrained('oefeningen');
             $table->string('startedAt');
             $table->string('finishedAt');

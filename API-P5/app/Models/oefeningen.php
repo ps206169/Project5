@@ -14,11 +14,6 @@ class oefeningen extends Model
 
     public function prestaties()
     {
-        return $this->hasMany(prestaties::class,  );
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, );
+        return $this->hasMany(prestaties::class, 'exerciseId', 'id');
     }
 }
