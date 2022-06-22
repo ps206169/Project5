@@ -108,7 +108,26 @@ class PrestatiesController extends Controller
      */
     public function show(prestaties $prestaties)
     {
-        //
+        $request->user()->currentAccessToken()->delete();
+        try{
+            $content = [ 
+                'succes' => true,
+                'data'   => $prestaties,
+                'access_token' => auth()->user()-createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content, 200);
+        }catch (\Throwable $th){
+            Log::emergency('Toon prestatie', ['error' => $th->getMessage()]);
+            $content = [
+                'succes' => false,
+                'data'   => null,
+                'foutmelding' => 'Gegevens kunnen niet getoond worden.',
+                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content, 500);
+        }
     }
 
     /**
@@ -120,7 +139,46 @@ class PrestatiesController extends Controller
      */
     public function update(Request $request, prestaties $prestaties)
     {
-        //
+        $request->user()->currentAccessToken()->delete();
+        try {
+            Log::info('Prestatie wijziging', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
+           
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'email',
+            ]);
+            if ($validator->fails()){
+                Log::error("Prestatie wijziging fout");
+                $content = [
+                    'succes' => false,
+                    'data'   => $request->all(),
+                    'foutmelding' => 'Gewijzigde data niet correct',
+                    'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+            }
+            else {
+                $content = [
+                    'succes' => $prestaties->update($request->all()),
+                    'data'   => $request->all(),
+                    'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+                return response()->json($content, 400);
+            }
+
+        } catch (\Throwable $th){
+            Log::emergency('Prestaties wijzigen', ['error' => $th->getMessages()]);
+            $content = [
+                'succes' => false,
+                'data'   => null,
+                'foutmelding' => 'Gegevens kunnen niet gewijzigd worden.',
+                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+                
+            ];
+            return response()->json($content, 500);
+        }
     }
 
     /**
@@ -131,6 +189,29 @@ class PrestatiesController extends Controller
      */
     public function destroy(prestaties $prestaties)
     {
-        //
+        $request->user()->currentAccessToken()->delete();
+        try{
+            Log::info('Prestaties verwijderen', ['data' => $prestaties]);
+            $prestaties->delete();
+
+            $content = [
+                'succes' => true,
+                'data'   => $prestaties,
+                'access_token' => auth()->user()-createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()-json($content, 202);
+          }
+          catch(\Throwable $th){
+            Log::emergency('Prestaties verwijderen', ['error' => $th->getMessage()]);
+            $content = [
+                'succes' => false,
+                'data'   => null,
+                'foutmelding' => 'Gegevens kunnen niet verwijderd worden.',
+                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content, 500);
+          }
     }
 }
