@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const gemiddeldScreen = () => {
+const exerciseNLScreen = () => {
   return (
     <View>
-      <Text>gemiddeldScreen</Text>
+      <Text>exerciseNLScreen</Text>
     </View>
   )
 }
 
-export default gemiddeldScreen
+export default exerciseNLScreen
 
 const styles = StyleSheet.create({})
