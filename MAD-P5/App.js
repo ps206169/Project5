@@ -30,11 +30,22 @@ const gemiddeldStack = () => {
     </Stack.Navigator>
   )
 }
+
+const moeielijkStack = () => {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="moeilijkListStack" component={moeilijkScreen} />
+      <Stack.Screen name="moeilijkDetailStack" component={moeilijkDetailScreen} />
+    </Stack.Navigator>
+  )
+}
+
 const MyTabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="makkelijk" component={makkelijkStack} />
       <Tab.Screen name="gemiddeld" component={gemiddeldStack} />
+      <Tab.Screen name="moeilijk" component={moeielijkStack} />
     </Tab.Navigator>
   )
 }
