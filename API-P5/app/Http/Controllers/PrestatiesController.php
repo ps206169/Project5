@@ -187,20 +187,22 @@ class PrestatiesController extends Controller
      * @param  \App\Models\prestaties  $prestaties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(prestaties $prestaties)
+    public function destroy(Request $request, $id)
     {
         $request->user()->currentAccessToken()->delete();
         try{
-            Log::info('Prestaties verwijderen', ['data' => $prestaties]);
-            $prestaties->delete();
+            Log::info('Prestaties verwijderen', ['data' => $id]);
+            $data = prestaties::where('id', $id)->delete();
+            $message = "Prestaties is gone";
 
             $content = [
                 'succes' => true,
-                'data'   => $prestaties,
+                'data'   => $data,
+                'message' => $message,
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
-            return response()->json($content, 202);
+            return response()->json($content, 200);
           }
           catch(\Throwable $th){
             Log::emergency('Prestaties verwijderen', ['error' => $th->getMessage()]);

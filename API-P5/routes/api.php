@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('profile', function (Request $request) {
         auth()->user();
     });
-    Route::delete('prestaties/{id}', [PrestatiesController::class, 'destroy']);
+    Route::delete('prestaties/delete/{id}', [PrestatiesController::class, 'destroy']);
     Route::apiResource('prestaties', PrestatiesController::class);
     Route::get('users/{id}/prestaties', [PrestatiesController::class, 'index']);
     Route::delete('users/{id}/prestaties', [PrestatiesController::class, 'destroy']);
