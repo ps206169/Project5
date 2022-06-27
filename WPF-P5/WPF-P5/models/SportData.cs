@@ -30,5 +30,20 @@ namespace WPF_P5.models
             set { nameEN = value; }
         }
 
+        private string instructionNL;
+
+        public string InstructionNL
+        {
+            get { return instructionNL; }
+            set { instructionNL = value; }
+        }
+        private string instructionEN;
+
+        public string InstructionEN
+        {
+            get { return instructionEN; }
+            set { instructionEN = value; }
+        }
+
     }
 }
