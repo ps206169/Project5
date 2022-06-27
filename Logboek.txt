@@ -32,3 +32,13 @@ Timo heeft de basis van de instructie geschreven en lemuel geholpen met errors i
 Jordy bezig geweest met tokens, postman, api, heeft alvast een user story van api afgerond.
 Lemuel, bezig geweest met de beheerder applicatie.
 Timo, Heeft ook aan de tokens gewerkt, probeerd een tweede user story van api af te werken. heeft aan API gewerkt en heeft lemuel geholpen.
+
+23-06-2022
+Lemuel, heeft verder aan de beheerder app gewerkt.
+Timo, heeft de beveiligde update functie gemaakt en volledig functioneel gekregen.
+Jordy, heeft de navigatie van mad opnieuw gemaakt. 
+
+
+
+
+Mad versie is nu = 0.2.1

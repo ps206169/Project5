@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const moeilijkDetailScreen = () => {
+const performanceScreen = () => {
   return (
     <View>
-      <Text>moeilijkDetailScreen</Text>
+      <Text>performanceScreen</Text>
     </View>
   )
 }
 
-export default moeilijkDetailScreen
+export default performanceScreen
 
 const styles = StyleSheet.create({})

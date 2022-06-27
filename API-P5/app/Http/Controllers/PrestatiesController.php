@@ -137,38 +137,25 @@ class PrestatiesController extends Controller
      * @param  \App\Models\prestaties  $prestaties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, prestaties $prestaties)
+    public function update(Request $request, prestaties $prestaties, $id)
     {
         $request->user()->currentAccessToken()->delete();
         try {
-            Log::info('Prestatie wijziging', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
+            Log::info('prestatie wijzigen', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
+            $prestaties = prestaties::find($id);
+            $prestaties->update($request->all());
+            return $request->all();
+            $message = "prestatie is geupdate";
+            $content = [
+                'success' => true,
+                'data'    => $prestaties,
+                'message' => $message
+            ];
+            return response()->json($content, 300);
 
-            $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'email',
-            ]);
-            if ($validator->fails()){
-                Log::error("Prestatie wijziging fout");
-                $content = [
-                    'succes' => false,
-                    'data'   => $request->all(),
-                    'foutmelding' => 'Gewijzigde data niet correct',
-                    'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                    'token_type' => 'Bearer'
-                ];
-            }
-            else {
-                $content = [
-                    'succes' => $prestaties->update($request->all()),
-                    'data'   => $request->all(),
-                    'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                    'token_type' => 'Bearer'
-                ];
-                return response()->json($content, 400);
-            }
 
-        } catch (\Throwable $th){
-            Log::emergency('Prestaties wijzigen', ['error' => $th->getMessages()]);
+        } catch (\Exception $th){
+            Log::channel('API')->error('Fout bij het updaten van Prestatie:'. $th->getMessages());
             $content = [
                 'succes' => false,
                 'data'   => null,
@@ -179,6 +166,9 @@ class PrestatiesController extends Controller
             ];
             return response()->json($content, 500);
         }
+        
+        $prestatie->update($request->all());
+        return $prestatie;
     }
 
     /**
