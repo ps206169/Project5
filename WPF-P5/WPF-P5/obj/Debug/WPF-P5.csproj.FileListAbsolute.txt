@@ -77,3 +77,4 @@ C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Prestat
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Create.baml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Gebruikers.baml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Prestaties.baml
+C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csprojAssemblyReference.cache

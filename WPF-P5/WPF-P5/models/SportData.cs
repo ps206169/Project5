@@ -8,12 +8,26 @@ namespace WPF_P5.models
 {
     public class SportData
     {
-        private string name;
+        private ulong id;
 
-        public string Name
+        public ulong ID
         {
-            get { return name; }
-            set { name = value; }
+            get { return id; }
+            set { id = value; }
+        }
+        private string nameNL;
+
+        public string Namenl
+        {
+            get { return nameNL; }
+            set { nameNL = value; }
+        }
+        private string nameEN;
+
+        public string Name_en
+        {
+            get { return nameEN; }
+            set { nameEN = value; }
         }
 
 

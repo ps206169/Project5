@@ -21,7 +21,7 @@ namespace WPF_P5
     /// </summary>
     public partial class Oefeningen : Window
     {
-
+        
         private ObservableCollection<SportData> sportDataList;
 
         public ObservableCollection<SportData> SportDataList
@@ -32,8 +32,17 @@ namespace WPF_P5
 
         public Oefeningen()
         {
+            loadData();
             InitializeComponent();
             DataContext = this;
+        }
+        Project5DB dB = new Project5DB();
+        public  static void loadData()
+        {
+            if(db.GetSportDatas ==null)
+            {
+
+            }
         }
 
         private void Wijzig_Click(object sender, RoutedEventArgs e)

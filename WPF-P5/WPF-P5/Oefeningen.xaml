@@ -46,23 +46,21 @@
 
         </Grid>
 
-        <DataGrid Height="350" ItemsSource="{Binding SportDataList}" >
-            <DataGrid.Columns>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Wijzig" x:Name="Wijzig" Click="Wijzig_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Verwijder" x:Name="Verwijder" Click="Verwijder_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView Height="350" ItemsSource="{Binding SportDataList}" Grid.Column="0" 
+                 
+                  SelectedItem="{Binding SelectedFormaat}"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ID}" Width="50"/>
+                        <TextBlock Text="{Binding Namenl}" Width="100"/>
+                        <TextBlock Text="{Binding Name_en}" Width="150"/>
+                        <Button Content="Wijzig" x:Name="Wijzig" Click="Wijzig_Click" />
+                        <Button Content="Verwijder" x:Name="Verwijder" Click="Verwijder_Click" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
