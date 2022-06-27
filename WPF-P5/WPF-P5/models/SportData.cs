@@ -30,8 +30,5 @@ namespace WPF_P5.models
             set { nameEN = value; }
         }
 
-
-
-
     }
 }

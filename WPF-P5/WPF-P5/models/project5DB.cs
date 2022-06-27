@@ -11,10 +11,8 @@ namespace WPF_P5.models
 {
     public class Project5DB
     {
-        private MySqlConnection _conn = new MySqlConnection(
-          ConfigurationManager.ConnectionStrings["db"].ConnectionString
-          );
-
+        private MySqlConnection _conn = new MySqlConnection("Server=localhost;Database=api_p5;Uid=root;Pwd=;");
+          
         public List<SportData> GetSportDatas()
         {
             List<SportData> totaal = new List<SportData>();
@@ -23,20 +21,18 @@ namespace WPF_P5.models
                 _conn.Open();
                 MySqlCommand sql = _conn.CreateCommand();
                 sql.CommandText =
-                    @"SELECT  id, nameNL, nameEN
-                    FROM oefeningen
-                    ";
+                    @"SELECT o.id , o.nameNL,o.nameEN
+                      FROM oefeningen o";
                 MySqlDataReader reader = sql.ExecuteReader();
 
                 while(reader.Read())
                 {
-                    SportData sportdata = new SportData()
-                    {
-                        ID= (ulong)reader["id"],
-                        Namenl = (string)reader["nameNL"],
-                        Name_en = (string)reader["nameEN"]
-                    };
 
+
+                    SportData sportdata = new SportData();
+                    sportdata.ID = (ulong)reader["id"];
+                    sportdata.Namenl = (string)reader["nameNL"];
+                    sportdata.Name_en = (string)reader["nameEN"];
                     totaal.Add(sportdata);
                 }
             }
@@ -47,7 +43,7 @@ namespace WPF_P5.models
             }
             finally
             {
-                if(_conn.State == System.Data.ConnectionState.Open)
+                if(_conn.State == ConnectionState.Open)
                 {
                     _conn.Close();
                 }
