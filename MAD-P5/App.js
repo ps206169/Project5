@@ -7,6 +7,7 @@ import { StackView } from '@react-navigation/stack';
 import languageScreen from './components/languageScreen';
 import enStack from './routes/enStack';
 import nlStack from './routes/nlStack';
+import aboutPage from './components/aboutPage';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
