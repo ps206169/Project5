@@ -2,16 +2,24 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import LanguageSelect from './routes/LanguageSelect';
+import EnScreen from './routes/EnScreen';
+import NlScreen from './routes/NlScreen';
 
+const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
+        <Stack.Screen name="EnScreen" component={EnScreen} />
+        <Stack.Screen name="NlScreen" component={NlScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -22,3 +30,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
