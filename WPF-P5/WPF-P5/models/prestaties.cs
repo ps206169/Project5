@@ -10,10 +10,6 @@ namespace WPF_P5.models
     {
         private string name;
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+       
     }
 }
