@@ -36,7 +36,8 @@ class UserController extends Controller
         Log::info('create user', ['ip'=>$request->ip(), 'data'=> $request->all()]);
         $validator = Validator::make($request->all(), [
             'email' => 'email',
-            'name' => 'required'
+            'name' => 'required',
+            'password' => 'required'
         ]);
         if($validator->fails()){
             Log::error("create user error");
@@ -69,6 +70,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email'=> 'email',
+            'password'=> 'required',
         ]);
         if($validator->fails())
         {
