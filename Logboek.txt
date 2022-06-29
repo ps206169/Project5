@@ -43,5 +43,10 @@ Jordy heeft geprobeerd de api semi live gezet
 Lemuel is bezig geweest met aspecten om inhaalpunten terug te krijgen.
 Timo heeft aan de beheerder applicatie gewerkt, heeft een paar problemen ervan opgelost en wat meer set up ervoor gedaan. 
 
+28-06=2022
+Jordy is bezig geweest met het live zetten van de api.
+Timo Heeft de About page van MAD aangemaakt.
+Lemuel heeft extended classes en abstracte classes aan de beheerder app toegevoegd. 
 
-Mad versie is nu = 0.2.1
+
+Mad versie is nu = 0.2.3
