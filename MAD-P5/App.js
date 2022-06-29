@@ -1,31 +1,16 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TabBarIOSItem, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { StackView } from '@react-navigation/stack';
-import languageScreen from './components/languageScreen';
-import enStack from './routes/enStack';
-import nlStack from './routes/nlStack';
-import aboutPage from './components/aboutPage';
-
-const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
-
-const languageSelect = () => {
-  return(
-    <Stack.Navigator>
-      <Stack.Screen name="languageSelectScreen" component={languageScreen} />
-      <Stack.Screen name="nlScreen" component={nlStack} />
-      <Stack.Screen name="enScreen" component={enStack} />
-    </Stack.Navigator>
-  )
-}
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-const App = () => {
+export default function App() {
   return (
-    languageSelect()
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
@@ -37,5 +22,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default App;
