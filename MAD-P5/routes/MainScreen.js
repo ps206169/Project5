@@ -7,32 +7,23 @@ import ExercisesNL from '../components/ExercisesNL';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const MyTabs = (props) => {
-    console.log(props);
-/*    if (props.route.params.name === 'Nederlands') {
-        return (
-            <Tab.Navigator>
-                <Tab.Screen name="ExercisesNL" component={ExercisesNL} />
-            </Tab.Navigator>
-        )
-    }
-    if (props.route.params.name === 'English') {
-        return (
-            <Tab.Navigator>
-                <Tab.Screen name="ExercisesEN" component={ExercisesEN} />
-            </Tab.Navigator>
-        )
-    }
-*/
-    return (
-        <Text>hi</Text>
-    )
-}
 
-const MainScreen = () => {
-    return (
-    <MyTabs />
-  )
+const MainScreen = (props) => {
+    console.log('In MyTabs van MainScreen.js', props);
+       if (props.route.params.name === 'Nederlands') {
+            return (
+                <Tab.Navigator>
+                    <Tab.Screen name="ExercisesNL" component={ExercisesNL} />
+                </Tab.Navigator>
+            )
+        }
+        if (props.route.params.name === 'English') {
+            return (
+                <Tab.Navigator>
+                    <Tab.Screen name="ExercisesEN" component={ExercisesEN} />
+                </Tab.Navigator>
+            )
+        }
 }
 
 export default MainScreen
