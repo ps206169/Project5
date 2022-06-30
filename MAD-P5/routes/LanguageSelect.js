@@ -20,6 +20,7 @@ const LanguageSelectStack = (props) => {
       <Text style={[styles.title]}>Selecteer een taal</Text>
       <Text style={[styles.title]}>Select a language</Text>
       <FlatList
+        style={styles.list}
         data={Data}
         renderItem={renderItem}
         keyExtractor={item => item.name}
@@ -55,4 +56,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     borderRadius: 10,
   },
+  list: {
+    display: 'flex',
+    flex: 1,
+    padding: 20,
+    margin: 20,
+    backgroundColor: '#fff',
+  }
 });

@@ -9,10 +9,18 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = (props) => {
     if (props.route.params.name === 'Nederlands') {
-        return <ExercisesNL />
+        return (
+            <Tab.Navigator>
+                <Tab.Screen name="ExercisesNL" component={ExercisesNL} />
+            </Tab.Navigator>
+        )
     }
     if (props.route.params.name === 'English') {
-        return <ExercisesEN />
+        return (
+            <Tab.Navigator>
+                <Tab.Screen name="ExercisesEN" component={ExercisesEN} />
+            </Tab.Navigator>
+        )
     }
 }
 
