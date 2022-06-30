@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const NlScreen = () => {
+const ExercisesEN = () => {
   return (
     <View>
-      <Text>NlScreen</Text>
+      <Text>ExercisesEN</Text>
     </View>
   )
 }
 
-export default NlScreen
+export default ExercisesEN
 
 const styles = StyleSheet.create({})

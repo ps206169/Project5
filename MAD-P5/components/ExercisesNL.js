@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const EnScreen = () => {
+const ExercisesNL = () => {
   return (
     <View>
-      <Text>EnScreen</Text>
+      <Text>exercisesNL</Text>
     </View>
   )
 }
 
-export default EnScreen
+export default ExercisesNL
 
 const styles = StyleSheet.create({})
