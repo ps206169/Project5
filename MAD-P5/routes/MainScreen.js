@@ -8,7 +8,8 @@ import ExercisesNL from '../components/ExercisesNL';
 const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = (props) => {
-    if (props.route.params.name === 'Nederlands') {
+    console.log(props);
+/*    if (props.route.params.name === 'Nederlands') {
         return (
             <Tab.Navigator>
                 <Tab.Screen name="ExercisesNL" component={ExercisesNL} />
@@ -22,6 +23,10 @@ const MyTabs = (props) => {
             </Tab.Navigator>
         )
     }
+*/
+    return (
+        <Text>hi</Text>
+    )
 }
 
 const MainScreen = () => {

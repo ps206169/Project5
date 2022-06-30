@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ExercisesEN = () => {
+const ExercisesEN = (props) => {
+    console.log(props);
   return (
     <View>
       <Text>ExercisesEN</Text>
