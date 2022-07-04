@@ -2,7 +2,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { Button } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import AboutPage from '../components/AboutPage';
+
+const stack = createStackNavigator();
 
 const Data = [
   {name: 'Nederlands'},
@@ -18,8 +22,8 @@ const LanguageSelect = (props) => {
   
   return (
     <View style={styles.container}>
-      <Pressable style={styles.about}>
-        <Text>About/Over ons</Text>
+      <Pressable onPress={() => props.navigation.push('AboutScreen')}>
+        <Text style={styles.about}>About/Over ons</Text>
       </Pressable>
       <Text style={[styles.title]}>Selecteer een taal</Text>
       <Text style={[styles.title]}>Select a language</Text>
