@@ -48,5 +48,10 @@ Jordy is bezig geweest met het live zetten van de api.
 Timo Heeft de About page van MAD aangemaakt.
 Lemuel heeft extended classes en abstracte classes aan de beheerder app toegevoegd. 
 
+04-7-2022
+timo heeft niks gedaan vandaag.
+Jordy heeft aan de mobiele app gewerkt.
+Lemuel heeft aan inhaalpunten zoals unit testen gedaan. 
+
 
 Mad versie is nu = 0.2.3
