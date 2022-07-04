@@ -54,4 +54,4 @@ Jordy heeft aan de mobiele app gewerkt.
 Lemuel heeft aan inhaalpunten zoals unit testen gedaan. 
 
 
-Mad versie is nu = 0.2.3
+Mad versie is nu = 0.2.7
