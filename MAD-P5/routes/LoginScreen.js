@@ -19,7 +19,7 @@ export const LoginScreen = () => {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
-            const response = await fetch("", {
+            const response = await fetch("https://eindopdrachtsummamove.nl/api/Login", {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
@@ -87,4 +87,19 @@ export const LoginScreen = () => {
         </TouchableOpacity>
     </View>
   );
-};
+}
+export default LoginScreen
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 50,
+  },
+
+  button: {
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 16,
+    borderRadius: 10,
+  },
+});
