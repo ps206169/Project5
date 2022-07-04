@@ -1,6 +1,7 @@
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ExercisesEN from '../components/ExercisesEN';
 import ExercisesNL from '../components/ExercisesNL';
@@ -33,14 +34,14 @@ const MainScreen = (props) => {
        if (props.route.params.name === 'Nederlands') {
             return (
                 <Tab.Navigator>
-                    <Tab.Screen name="ExercisesNL" component={NLStack} />
+                    <Tab.Screen name="NLStack" component={NLStack} />
                 </Tab.Navigator>
             )
         }
         if (props.route.params.name === 'English') {
             return (
                 <Tab.Navigator>
-                    <Tab.Screen name="ExercisesEN" component={ENStack} />
+                    <Tab.Screen name="ENStack" component={ENStack} />
                 </Tab.Navigator>
             )
         }

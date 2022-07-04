@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LanguageSelect from './routes/LanguageSelect';
 import MainScreen from './routes/MainScreen';
-import LoginScreen from './routes/LoginScreen';
+import AboutPage from './components/AboutPage';
 
 const Stack = createStackNavigator();
 
@@ -14,8 +14,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
+        <Stack.Screen name="AboutScreen" component={AboutPage} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

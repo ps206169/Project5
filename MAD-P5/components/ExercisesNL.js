@@ -1,72 +1,47 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { ActivityIndicator } from 'react-native-paper';
+import { FlatList } from 'react-native-gesture-handler';
 
 const Exercises = (props) => {
   const api = 'https://eindopdrachtsummamove.nl/api/oefeningen';
-  const [isAvailable, setAvailable] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  useEffect(() => { GetData(); }, []);
-
-  const HandleError = (error) => {
-    console.log(error);
-    setData(
-      {
-        results: [{
-            name: 'Er is een fout opgetreden. Start de applicatie opnieuw op. '
-                + 'Blijft het probleem optreden, waarschuw dan de service desk.'
-        }]
-      }
-    )
+  const GetExercisesNL = async () => {
+    try {
+      const response = await fetch(api);
+      const json = await response.json();
+      setData(json);
+    } catch (error) {
+      console.error(error);
+    }
+    finally {
+      setIsLoading(false);
+    }
   }
 
-  const GetData = () => {
-    fetch(api)
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => HandleError(error))
-      .finally(() => setAvailable(true));
-      console.log(api);
-  }
+  useEffect(() => { GetExercisesNL(); }, []);
 
-  const RenderData = ({ item, index }) => {
-    const id = item.id;
-    return (
-      <View>
-        <Pressable onPress={() => props.navigation.push( 'ExerciseDetailsNL', {id})}>
-          <Text>{item.id} {item.name}</Text>
-        </Pressable>
-      </View>
-    )
-  }
 
   return (
     <View style={styles.container}>
-      {isAvailable
-        ?
-        (
-          <View style={styles.container}>
-            <FlatList
-              data={data.results}
-              renderItem={RenderData}
-              keyExtractor={(item, index) => item.id + item.nameNL + index}
-            />
-          </View>
-        )
-        :
-        (
-          <View style={styles.container}>
-            <Text>Er is een fout opgetreden. Start de applicatie opnieuw op. '
-                  + 'Blijft het probleem optreden, waarschuw dan de service desk.'
-            </Text>
-          </View>
-        )
-      }
+      {isLoading ? <ActivityIndicator/>: (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => props.navigation.navigate('ExerciseDetailsNL', { id: item.id })}>
+              <Text style={styles.item}>{item.nameNL}</Text>
+            </Pressable>
+          )}
+          keyExtractor={item => item.id}
+        />
+      )}
     </View>
   )
 }
 
-export default Exercises
+export default Exercises;
 
 const styles = StyleSheet.create({
   container: { 
@@ -81,5 +56,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10
   },
- 
+  item: {
+    padding: 10,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    marginTop: 16,
+    textAlign: 'center',
+    fontSize: 32,
+  }
 })
