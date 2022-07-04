@@ -25,7 +25,7 @@ class OefeningenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return oefeningen::create($request->all());
     }
 
     /**
@@ -36,7 +36,7 @@ class OefeningenController extends Controller
      */
     public function show(oefeningen $oefeningen)
     {
-        //
+        return $oefeningen;
     }
 
     /**
@@ -48,7 +48,8 @@ class OefeningenController extends Controller
      */
     public function update(Request $request, oefeningen $oefeningen)
     {
-        //
+        $oefeningen->update($request->all());
+        return $oefeningen;
     }
 
     /**
@@ -59,6 +60,7 @@ class OefeningenController extends Controller
      */
     public function destroy(oefeningen $oefeningen)
     {
-        //
+        $oefeningen->delete();
+        return response(['status'=>'success']);
     }
 }

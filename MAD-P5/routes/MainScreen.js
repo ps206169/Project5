@@ -4,23 +4,43 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ExercisesEN from '../components/ExercisesEN';
 import ExercisesNL from '../components/ExercisesNL';
+import ExerciseDetailsNL from '../components/ExerciseDetailsNL';
+import ExerciseDetailsEN from '../components/ExerciseDetailsEN';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 
+const NLStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="ExercisesNL" component={ExercisesNL} />
+      <Stack.Screen name="ExerciseDetailsNL" component={ExerciseDetailsNL} />
+    </Stack.Navigator>
+  )
+}
+
+const ENStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="ExercisesEN" component={ExercisesEN} />
+      <Stack.Screen name="ExerciseDetailsEN" component={ExerciseDetailsEN} />
+    </Stack.Navigator>
+  )
+}
 
 const MainScreen = (props) => {
     console.log('In MyTabs van MainScreen.js', props);
        if (props.route.params.name === 'Nederlands') {
             return (
                 <Tab.Navigator>
-                    <Tab.Screen name="ExercisesNL" component={ExercisesNL} />
+                    <Tab.Screen name="ExercisesNL" component={NLStack} />
                 </Tab.Navigator>
             )
         }
         if (props.route.params.name === 'English') {
             return (
                 <Tab.Navigator>
-                    <Tab.Screen name="ExercisesEN" component={ExercisesEN} />
+                    <Tab.Screen name="ExercisesEN" component={ENStack} />
                 </Tab.Navigator>
             )
         }

@@ -1,43 +1,85 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 
-const api = "https://eindopdrachtsummamove.nl/api/oefeningen";
-const [isExerciseAvailable, setExerciseAvailable] = useState(false);
-const [exercises, setExercises] = useState(null);
+const Exercises = (props) => {
+  const api = 'https://eindopdrachtsummamove.nl/api/oefeningen';
+  const [isAvailable, setAvailable] = useState(false);
+  const [data, setData] = useState(null);
 
-const errorHandling = (error) => {
-  console.log(error);
-  setExercises(
-    {
-      count: '***ERROR***',
-      next: null,
-      previous: null,
-      results: [
-        { name: 'Er is een fout opgetreden. Start de applicatie opnieuw op. '
-         + 'Blijft het probleem optreden, waarschuw dan de service desk.' }
-      ]
-    })
-}
+  useEffect(() => { GetData(); }, []);
 
-const getExercises = () => {
-  fetch(api)
-    .then((response) => response.json())
-    .then((data) => setExercises(data))
-    .catch((error) => errorHandling(error))
-    .finally(() => setExerciseAvailable(true));
-}
+  const HandleError = (error) => {
+    console.log(error);
+    setData(
+      {
+        results: [{
+            name: 'Er is een fout opgetreden. Start de applicatie opnieuw op. '
+                + 'Blijft het probleem optreden, waarschuw dan de service desk.'
+        }]
+      }
+    )
+  }
 
+  const GetData = () => {
+    fetch(api)
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => HandleError(error))
+      .finally(() => setAvailable(true));
+      console.log(api);
+  }
 
-const ExercisesNL = () => {
+  const RenderData = ({ item, index }) => {
+    const id = item.id;
+    return (
+      <View>
+        <Pressable onPress={() => props.navigation.push( 'ExerciseDetailsNL', {id})}>
+          <Text>{item.id} {item.name}</Text>
+        </Pressable>
+      </View>
+    )
+  }
+
   return (
-    <View>
-      <Pressable onPress={() => props.navigation.push('ExerciseDetails', { id: exercises.results[0].id })}>
-        <Text>{exercises.results[0].name}</Text>
-      </Pressable>
+    <View style={styles.container}>
+      {isAvailable
+        ?
+        (
+          <View style={styles.container}>
+            <FlatList
+              data={data.results}
+              renderItem={RenderData}
+              keyExtractor={(item, index) => item.id + item.nameNL + index}
+            />
+          </View>
+        )
+        :
+        (
+          <View style={styles.container}>
+            <Text>Er is een fout opgetreden. Start de applicatie opnieuw op. '
+                  + 'Blijft het probleem optreden, waarschuw dan de service desk.'
+            </Text>
+          </View>
+        )
+      }
     </View>
   )
 }
 
-export default ExercisesNL
+export default Exercises
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: { 
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    padding: 10
+  },
+  header: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  },
+ 
+})
