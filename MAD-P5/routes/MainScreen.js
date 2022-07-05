@@ -7,6 +7,7 @@ import ExercisesEN from '../components/ExercisesEN';
 import ExercisesNL from '../components/ExercisesNL';
 import ExerciseDetailsNL from '../components/ExerciseDetailsNL';
 import ExerciseDetailsEN from '../components/ExerciseDetailsEN';
+import CreateExercise from '../components/CreateExercise';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -35,6 +36,7 @@ const MainScreen = (props) => {
             return (
                 <Tab.Navigator>
                     <Tab.Screen name="NLStack" component={NLStack} />
+                    <Tab.Screen name="CreateExercise" component={CreateExercise} />
                 </Tab.Navigator>
             )
         }
@@ -42,6 +44,7 @@ const MainScreen = (props) => {
             return (
                 <Tab.Navigator>
                     <Tab.Screen name="ENStack" component={ENStack} />
+                    <Tab.Screen name="CreateExercise" component={CreateExercise} />
                 </Tab.Navigator>
             )
         }
