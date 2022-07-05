@@ -1,6 +1,5 @@
-import React, {useContext, useState} from 'react';
-import {ActivityIndicator, Button, Text, View} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useContext, useState} from 'react';
+import {StatusBar, Text, View, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import { UserAuth } from '../service/Authentication';
 import { TextInput } from 'react-native-gesture-handler';
 
@@ -19,7 +18,7 @@ export const LoginScreen = () => {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
-            const response = await fetch("https://eindopdrachtsummamove.nl/api/Login", {
+            const response = await fetch("https://127.0.0.1:8000/api/login", {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
@@ -61,7 +60,7 @@ export const LoginScreen = () => {
         }
         else {
     
-          LoginStudent(Email, Password);
+          Login(Email, Password);
         }
     
     
@@ -73,11 +72,11 @@ export const LoginScreen = () => {
       <Text>Sign In Screen</Text>
       <TextInput
       value={Email}
-      onChangeText={(text) => setEmail(text)}
+      onChangeText={(text) => SetEmail(text)}
       />
       <TextInput
       value={Password}
-      onChangeText={(text) => setPassword(text)}
+      onChangeText={(text) => SetPassword(text)}
       />
       <TouchableOpacity style={styles.button} onPress={login}>
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18 }}> Log In</Text>
@@ -86,20 +85,44 @@ export const LoginScreen = () => {
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18, }}> Terug</Text>
         </TouchableOpacity>
     </View>
-  );
+  )
 }
 export default LoginScreen
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 50,
   },
-
+  about: {
+    textAlign: 'center',
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    marginTop: 16,
+    textAlign: 'center',
+    fontSize: 32,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
   button: {
     backgroundColor: '#DDDDDD',
     padding: 10,
     marginVertical: 10,
     marginHorizontal: 16,
     borderRadius: 10,
+  },
+  list: {
+    display: 'flex',
+    flex: 1,
+    padding: 20,
+    margin: 20,
+    backgroundColor: '#fff',
   },
 });
