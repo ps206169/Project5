@@ -4,13 +4,13 @@ import { UserAuth } from '../service/Authentication';
 import { TextInput } from 'react-native-gesture-handler';
 
 
-export const LoginScreen = () => {
+const Login = ({navigation}) => {
     const { SetUser } = useContext(UserAuth);
 
     const [ Email, SetEmail] = useState("");
     const [ Password, SetPassword] = useState("");
 
-    const Login = async (email, password) =>{
+    const LoginScreen = async (email, password) =>{
 
         SetPassword("");
         SetEmail("");
@@ -18,13 +18,13 @@ export const LoginScreen = () => {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
-            const response = await fetch("https://127.0.0.1:8000/api/login", {
+            const response = await fetch("https://eindopdrachtsummamove.nl/api/login/", {
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
                     email: email,
                     password: password,
-                    password_conformation: password,
+                    
                 }),
             });
         
@@ -34,7 +34,7 @@ export const LoginScreen = () => {
             const data = await response.json();
             console.log(data);
             SetUser(data);
-
+          Alert.alert("Succes!");
         }
         else {
             alert("Email of wachtwoord is on juist");
@@ -43,6 +43,7 @@ export const LoginScreen = () => {
         }
 
         catch (error) {
+          alert(error);
           alert("Fout bij aanroepen van api");
           Alert.alert("Fout bij aanroepen van api");
         }
@@ -60,7 +61,7 @@ export const LoginScreen = () => {
         }
         else {
     
-          Login(Email, Password);
+          LoginScreen(Email, Password);
         }
     
     
@@ -87,7 +88,7 @@ export const LoginScreen = () => {
     </View>
   )
 }
-export default LoginScreen
+export default Login
 
 
 const styles = StyleSheet.create({
