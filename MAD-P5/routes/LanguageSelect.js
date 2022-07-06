@@ -27,9 +27,6 @@ const LanguageSelect = (props) => {
       </Pressable>
       <Text style={[styles.title]}>Selecteer een taal</Text>
       <Text style={[styles.title]}>Select a language</Text>
-      <Pressable onPress={() => props.navigation.push('LoginScreen')}>
-        <Text style={[styles.title]}>Login</Text>
-      </Pressable>
       <FlatList
         style={styles.list}
         data={Data}
