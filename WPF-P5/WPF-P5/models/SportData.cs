@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WPF_P5.models
 {
-    public class SportData
+    public class SportData : ExtendSportData 
     {
-        private ulong id;
+       
 
-        public ulong ID
+        private int id;
+
+        public int ID
         {
             get { return id; }
             set { id = value; }
@@ -27,23 +31,10 @@ namespace WPF_P5.models
         public string Name_en
         {
             get { return nameEN; }
-            set { nameEN = value; }
+            set { nameEN = value; OnPropertyChanged(); }
         }
 
-        private string instructionNL;
-
-        public string InstructionNL
-        {
-            get { return instructionNL; }
-            set { instructionNL = value; }
-        }
-        private string instructionEN;
-
-        public string InstructionEN
-        {
-            get { return instructionEN; }
-            set { instructionEN = value; }
-        }
+     
 
     }
 }

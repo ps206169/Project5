@@ -5,32 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_P5"
         mc:Ignorable="d"
-        Title="Create" Height="450" Width="800">
+        Title="Create"  Height="500" Width="1000">
     <Grid>
 
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FF80AB" Offset="0.0" />
+                <GradientStop Color="#6A1B9A" Offset="0.25" />
+                <GradientStop Color="#4A148C" Offset="0.75" />
+                <GradientStop Color="#3949AB" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="1">
-            <TextBlock Text="Naam Oefening" FontSize="30"/>
-            <TextBox Height="30px" Margin="0,0,0,10" />
-            <Button Height="40" VerticalAlignment="Bottom" Margin="20,10,20,40" Click="Button_Click">Create</Button>
-        </Grid>
+        <StackPanel  Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" >
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Margin="0,0,30,0" FontSize="20">Naam</TextBlock>
+                <TextBox x:Name="TBNaamNL" Background="White" FontSize="20" Width="323"></TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Margin="0,0,0,0" FontSize="20">Beschrijving</TextBlock>
+                <TextBox x:Name="TBBeschrijvingNL" Background="White" FontSize="20" Height="200" Width="324" TextWrapping="Wrap"></TextBox>
+            </DockPanel>
 
-        <!-- This rectangle is painted with a diagonal linear gradient. -->
-        <Rectangle Width="800" Height="420" Grid.ColumnSpan="3">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF80AB" Offset="0.0" />
-                    <GradientStop Color="#6A1B9A" Offset="0.25" />
-                    <GradientStop Color="#4A148C" Offset="0.75" />
-                    <GradientStop Color="#3949AB" Offset="1.0" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <TextBlock FontSize="20px">Summa Move</TextBlock>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2"  VerticalAlignment="Center" >
+            <DockPanel Margin="0,0,0,10">
+                <TextBlock Margin="0,0,30,0" FontSize="20">Name</TextBlock>
+                <TextBox x:Name="TBNaamEN" Background="White" FontSize="20" Width="323"></TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Margin="0,0,0,0" FontSize="20">Description</TextBlock>
+                <TextBox x:Name="TBBeschrijvingEN" Background="White" FontSize="20" Height="200" Width="324" TextWrapping="Wrap"></TextBox>
+            </DockPanel>
+        </StackPanel>
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="100" FontSize="22" Click="Button_Click" >Opslaan</Button>
+
+
     </Grid>
 </Window>
+
