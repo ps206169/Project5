@@ -10,6 +10,6 @@ class TestController extends Controller
     {
         $response = Http::get('http://127.0.0.1:8000/api/oefeningen'); 
         
-        return Http::get('http://127.0.0.1:8000/api/oefeningen');
+        return $response;
     }
 }

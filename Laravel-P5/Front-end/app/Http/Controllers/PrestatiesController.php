@@ -6,6 +6,7 @@ use App\Models\prestaties;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class PrestatiesController extends Controller
 {
@@ -16,38 +17,8 @@ class PrestatiesController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->currentAccessToken()->delete();
-  
-        try {
-            if($request->has('name')){
-                $data = prestaties::where('name', 'like', '%'.$request->name.'%')->get();
-            } else if($request->has('sort')){
-                $data = prestaties::orderBy($request->sort)->get();
-            } else {
-                $data = prestaties::all();
-            }
-            $content = [
-                'success' => true,
-                'data'    => $data,
-                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                'token_type' => 'Bearer',
-            ];
-            return response()->json($content,200);
-        } catch (\Throwable $th) {
-            Log::emergency('werknemers', ['error' => $th->getMessage()]);
-
-            $content = [
-                'success'   => false,
-                'data'      => null,
-                'foutmelding' => 'Gegevens kunnen niet getoond worden',
-                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                'token_type' => 'Bearer',
-            ];
-
-           // return response()->json($content,500);
-        }
-        $prestaties = prestaties::all();
-        return view('dashboard', ['prestaties'=>$prestaties]);
+        $prestaties = DB::table('prestaties')->get();
+        return view('Page', ['prestaties'=>$prestaties]);
     }
 
     /**
