@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler';
 
 const Exercise = () => {
-    const api = 'https://eindopdrachtsummamove.nl/api/oefeningen';
+    const api = 'http://localhost:8000/api/oefeningen';
     const [nameNL, setNameNL] = useState('');
     const [nameEN, setNameEN] = useState('');
     const [descriptionNL, setDescriptionNL] = useState('');

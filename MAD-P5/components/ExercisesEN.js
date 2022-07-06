@@ -4,7 +4,7 @@ import { ActivityIndicator } from 'react-native-paper';
 import { FlatList } from 'react-native-gesture-handler';
 
 const Exercises = (props) => {
-  const api = 'https://eindopdrachtsummamove.nl/api/oefeningen';
+  const api = 'http://localhost:8000/api/oefeningen';
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
