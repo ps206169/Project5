@@ -20,8 +20,8 @@ const Exercise = () => {
             body: JSON.stringify({
                 nameNL: nameNL,
                 nameEN: nameEN,
-                descriptionNL: descriptionNL,
-                descriptionEN: descriptionEN,
+                instructionNL: descriptionNL,
+                instructionEN: descriptionEN,
                 })
         };
         try{
@@ -30,6 +30,7 @@ const Exercise = () => {
             console.log(json);  
         }
         catch(error){
+            console.log(error);
         }
 
 
