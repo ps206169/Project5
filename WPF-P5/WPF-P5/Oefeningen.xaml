@@ -57,31 +57,90 @@
             <Button  Grid.Column="1" Grid.Row="9" x:Name="BtSwitch" Click="BtSwitch_Click">Naar de ander taal</Button>
         </Grid>
 
-        <ListView Height="350" ItemsSource="{Binding SportDataList}" Grid.Column="0" x:Name="LstNederlands"
+        <DataGrid Height="350" ItemsSource="{Binding SportDataList}" Grid.Column="0"  x:Name="LstNederlands" SelectionMode="Single" CanUserAddRows="False" AutoGenerateColumns="False"  IsReadOnly="True"
+            SelectedItem="{Binding SelectedOefening}" >
+            <DataGrid.Columns >
+                <DataGridTextColumn   Binding="{Binding ID}" Header="ID">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Namenl}"  Header="Naam " Width="150" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Wijzig_Click"  >
+                                Wijzig
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Verwijder_Click"  >
+                                Verwijder
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Height="350" ItemsSource="{Binding SportDataList}" Grid.Column="0" Visibility="Hidden" x:Name="LstEnglish" SelectionMode="Single" CanUserAddRows="False" AutoGenerateColumns="False"  IsReadOnly="True"
                   SelectedItem="{Binding SelectedOefening}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding ID}" Width="50"/>
-                        <TextBlock Text="{Binding Namenl}" Width="100"/>
-                        <Button Content="Wijzig" x:Name="Wijzig" Click="Wijzig_Click" />
-                        <Button Content="Verwijder" x:Name="Verwijder" Click="Verwijder_Click" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView Height="350" ItemsSource="{Binding SportDataList}" Grid.Column="0" Visibility="Hidden" x:Name="LstEnglish"
-                  SelectedItem="{Binding SelectedOefening}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding ID}" Width="50"/>
-                        <TextBlock Text="{Binding Name_en}" Width="100"/>
-                        <Button Content="Wijzig" x:Name="Wijzig" Click="Wijzig_Click" />
-                        <Button Content="Verwijder" x:Name="Verwijder" Click="Verwijder_Click" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <DataGrid.Columns >
+                <DataGridTextColumn   Binding="{Binding ID}" Header="ID">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Namenl}"  Header="Naam " Width="100" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Wijzig_Click"  >
+                                Wijzig
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Verwijder_Click"  >
+                                Verwijder
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+          
+        </DataGrid>
     </Grid>
 </Window>

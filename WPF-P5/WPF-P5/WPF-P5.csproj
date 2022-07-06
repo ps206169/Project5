@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -98,6 +101,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GebruikerWijzigen.xaml.cs">
+      <DependentUpon>GebruikerWijzigen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GebuikerMaken.xaml.cs">
+      <DependentUpon>GebuikerMaken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="models\Users.cs" />
+    <Compile Include="Wijzig.xaml.cs">
+      <DependentUpon>Wijzig.xaml</DependentUpon>
+    </Compile>
     <Page Include="Create.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +129,14 @@
     <Compile Include="Gebruikers.xaml.cs">
       <DependentUpon>Gebruikers.xaml</DependentUpon>
     </Compile>
+    <Page Include="GebruikerWijzigen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GebuikerMaken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Oefeningen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,8 +145,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Wijzig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\ExtendSportData.cs" />
+    <Compile Include="models\Notify.cs" />
     <Compile Include="models\Prestaties.cs" />
     <Compile Include="models\Project5DB.cs" />
     <Compile Include="models\SportData.cs" />
@@ -160,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
