@@ -32,6 +32,7 @@ class AuthenticationController extends Controller
     public function login(Request $request)
 
     {
+        Log::info('Login', ['ip' => $request->ip(),'data' => $request->all()]);
         $attr = $request->validate([
             'email' => 'required|string|email|',
             'password' => 'required|string|min:6'

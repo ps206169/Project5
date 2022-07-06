@@ -1,31 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TabBarIOSItem, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-native-gesture-handler';
+import React from 'react';
+import 'react-native-gesture-handler';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { StackView } from '@react-navigation/stack';
-import languageScreen from './components/languageScreen';
-import enStack from './routes/enStack';
-import nlStack from './routes/nlStack';
+import { createStackNavigator } from '@react-navigation/stack';
+import LanguageSelect from './routes/LanguageSelect';
+import MainScreen from './routes/MainScreen';
+import AboutPage from './components/AboutPage';
+import {Authentication} from './service/Authentication';
 
-const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
-
-const languageSelect = () => {
+const StartStack =() => {
   return(
-    <Stack.Navigator>
-      <Stack.Screen name="languageSelectScreen" component={languageScreen} />
-      <Stack.Screen name="nlScreen" component={nlStack} />
-      <Stack.Screen name="enScreen" component={enStack} />
-    </Stack.Navigator>
+  <Stack.Navigator >
+  <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
+  <Stack.Screen name="AboutScreen" component={AboutPage} />
+  <Stack.Screen name="MainScreen" component={MainScreen} />
+</Stack.Navigator>
   )
 }
 
-
 const App = () => {
-  return (
-    languageSelect()
+  return (<Authentication>
+    <NavigationContainer>
+     <StartStack></StartStack>
+    </NavigationContainer>
+    </Authentication>
   );
+
 }
 
 const styles = StyleSheet.create({

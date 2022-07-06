@@ -166,9 +166,9 @@ class PrestatiesController extends Controller
             ];
             return response()->json($content, 500);
         }
-        
-        $prestatie->update($request->all());
-        return $prestatie;
+
+        $prestaties->update($request->all());
+        return $prestaties;
     }
 
     /**
