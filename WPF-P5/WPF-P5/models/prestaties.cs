@@ -8,7 +8,7 @@ namespace WPF_P5.models
 {
      public class Prestaties
     {
-        private string name;
+        //private string name;
 
        
     }

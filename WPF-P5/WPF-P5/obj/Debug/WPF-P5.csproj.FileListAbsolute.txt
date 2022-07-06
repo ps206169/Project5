@@ -77,7 +77,6 @@ C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Prestat
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Create.baml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Gebruikers.baml
 C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Prestaties.baml
-C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csprojAssemblyReference.cache
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.AssemblyReference.cache
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\Create.g.cs
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\Gebruikers.g.cs
@@ -122,3 +121,111 @@ C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\WPF_
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.GenerateResource.cache
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.CoreCompileInputs.cache
 C:\Users\rexbo\Documents\school\leerjaar 2\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.CopyComplete
+C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csprojAssemblyReference.cache
+C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Wijzig.g.cs
+C:\Users\lemxd\project5\Project 5 clone\Project5\WPF-P5\WPF-P5\obj\Debug\Wijzig.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\WPF-P5.exe.config
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\WPF-P5.exe
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\WPF-P5.pdb
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\Google.Protobuf.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\MySql.Data.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Buffers.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Memory.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\ZstdNet.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\Google.Protobuf.pdb
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\Google.Protobuf.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\MySql.Data.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Buffers.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Memory.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.csproj.AssemblyReference.cache
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Create.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Gebruikers.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Oefeningen.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Prestaties.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Wijzig.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\App.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5_MarkupCompile.cache
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5_MarkupCompile.lref
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Create.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Gebruikers.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Oefeningen.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Prestaties.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\Wijzig.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.g.resources
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF_P5.Properties.Resources.resources
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.csproj.GenerateResource.cache
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.csproj.CoreCompileInputs.cache
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.csproj.CopyComplete
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.exe
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\WPF-P5.pdb
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\BCrypt.Net.dll
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\BCrypt.Net.pdb
+C:\Users\yazan\Desktop\packages\WPF-P5\bin\Debug\BCrypt.Net.xml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\GebuikerMaken.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\GebuikerMaken.baml
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\GebruikerWijzigen.g.cs
+C:\Users\yazan\Desktop\packages\WPF-P5\obj\Debug\GebruikerWijzigen.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\WPF-P5.exe.config
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\WPF-P5.exe
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\WPF-P5.pdb
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\BCrypt.Net.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\Google.Protobuf.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\MySql.Data.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Buffers.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Memory.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\ZstdNet.dll
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\BCrypt.Net.pdb
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\BCrypt.Net.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\Google.Protobuf.pdb
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\Google.Protobuf.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\MySql.Data.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Buffers.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Memory.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csprojAssemblyReference.cache
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Create.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Gebruikers.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\GebruikerWijzigen.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\GebuikerMaken.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Oefeningen.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Prestaties.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Wijzig.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\App.g.cs
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5_MarkupCompile.cache
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5_MarkupCompile.lref
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Create.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Gebruikers.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\GebruikerWijzigen.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\GebuikerMaken.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Oefeningen.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Prestaties.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\Wijzig.baml
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.g.resources
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF_P5.Properties.Resources.resources
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.GenerateResource.cache
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.csproj.CopyComplete
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.exe
+C:\Users\lemxd\OneDrive\Bureaublad\WPF-P5\WPF-P5\obj\Debug\WPF-P5.pdb

@@ -40,9 +40,58 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Button  Grid.Column="1" Width="100" Height="40" VerticalAlignment="Top" Margin="10,70,10,10">Refresh</Button>
-            <Button  Grid.Column="1" Width="100" Height="40" VerticalAlignment="Center" Margin="10,30,10,100">Create</Button>
-            <Button  Grid.Column="1" Width="100" Height="40" VerticalAlignment="Center" Margin="10,100,10,0">Oefeningen</Button>
+            <Button  Grid.Column="1" Width="100" Height="40" VerticalAlignment="Center" Margin="10,30,10,100" Click="BtCreate_Click">Create</Button>
+            <Button  x:Name="BTOefeningen" Grid.Column="1" Width="100" Height="40" VerticalAlignment="Center" Margin="10,100,10,0" Click="BTOefeningen_Click">Oefeningen</Button>
         </Grid>
+        <DataGrid Height="350" ItemsSource="{Binding Users}" Grid.Column="0"  x:Name="LstNederlands" SelectionMode="Single" CanUserAddRows="False" AutoGenerateColumns="False"  IsReadOnly="True"
+            SelectedItem="{Binding SelectedUser}" >
+            <DataGrid.Columns >
+                <DataGridTextColumn   Binding="{Binding ID}" Header="ID">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Name}"  Header="Naam" Width="100" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email"  Width="250" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"></Setter>
+                            <Setter Property="FontWeight" Value="Black"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Wijzig_Click"  >
+                                Wijzig
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="White" Click="Verwijder_Click"  >
+                                Verwijder
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <!--<ListView  ItemsSource="{Binding Source={StaticResource SportData}}">
             <ListView.View>
