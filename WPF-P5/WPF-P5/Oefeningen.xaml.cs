@@ -54,7 +54,7 @@ namespace WPF_P5
         {
             if (_db.GetSportDatas() == null)
             {
-                MessageBox.Show("Er is een fout opgetrijden tijdens het data ophallen", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Er is een fout opgetrijden tijdens het data ophalen", "", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -73,7 +73,7 @@ namespace WPF_P5
                 {
 
                     SportDataList.Clear();
-                    MessageBox.Show("Er is een fout opgetrijden tijdens het data ophallen", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Er is een fout opgetrijden tijdens het data ophalen", "", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
