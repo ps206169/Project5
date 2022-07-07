@@ -53,5 +53,11 @@ timo heeft niks gedaan vandaag.
 Jordy heeft aan de mobiele app gewerkt.
 Lemuel heeft aan inhaalpunten zoals unit testen gedaan. 
 
+06-7-2022
+Timo heeft een ruwe versie van een login pagina gemaakt.
+Jordy heeft de App compleet gemaakt.
+Lemeul heeft aan zijn inhaalpunten gewerkt.
+
+
 
 Mad versie is nu = 0.2.7
