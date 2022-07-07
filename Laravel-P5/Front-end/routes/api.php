@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PrestatiesController;
 use App\Http\Controllers\OefeningenController;
 use App\Http\Controllers\UserController;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -32,8 +35,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('users', UserController::class)
         ->only(['index','show']);
 });
-
-Route::apiResource('oefeningen', OefeningenController::class);
+Route::apiResource('oefeningen', OefeningenController::class)->parameters(['oefeningen' => 'oefening'])
+->only(['index', 'show']);
 
 
 Route::fallback(function(){
