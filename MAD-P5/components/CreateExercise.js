@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler';
 
 const Exercise = () => {
-    const api = 'https://eindopdrachtsummamove.nl/api/oefeningen';
+    const api = 'http://localhost:8000/api/oefeningen';
     const [nameNL, setNameNL] = useState('');
     const [nameEN, setNameEN] = useState('');
     const [descriptionNL, setDescriptionNL] = useState('');
@@ -20,8 +20,8 @@ const Exercise = () => {
             body: JSON.stringify({
                 nameNL: nameNL,
                 nameEN: nameEN,
-                descriptionNL: descriptionNL,
-                descriptionEN: descriptionEN,
+                instructionNL: descriptionNL,
+                instructionEN: descriptionEN,
                 })
         };
         try{
@@ -30,6 +30,7 @@ const Exercise = () => {
             console.log(json);  
         }
         catch(error){
+            console.log(error);
         }
 
 

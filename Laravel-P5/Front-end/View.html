@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:mso="urn:schemas-microsoft-com:office:office"
+	xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	<title>GOD I LOVE LARAVEL, KILL ME</title>
+	<meta charset="utf-8" />
+	<style>
+		div,
+		footer,
+		form {
+			margin-top: 20px;
+		}
+
+		input,
+		select {
+			margin-top: 5px;
+			width: 40%;
+			padding: 2px;
+		}
+
+		body {
+			width: 80%;
+			max-width: 600px;
+			margin: auto;
+			margin-top: 50px;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding-right: 10px;
+		}
+
+		div {
+			width: 100%;
+		}
+
+		label {
+			width: 20%;
+			display: inline-block;
+		}
+
+		td:last-child {
+			color: red;
+			cursor: pointer;
+		}
+	</style>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<h1>Prestaties</h1>
+
+	<div id="appContent" style="visibility: hidden">
+		<div>
+			<label for="users">user:</label><select id="users" onclick="laadAlles()"></select>
+		</div>
+		<br />
+		<table>
+			<tr>
+				<th>user</th>
+				<th>Begonnen</th>
+				<th>klaar</th>
+                <th>hoeveelheid/tijd</th>
+			</tr>
+			<tbody id="tabelInhoud" />
+		</table>
+
+		<div>
+			<label for="users">user:</label><input type="text" id="users" required /><br />
+			<label for="startedAt">begonnen:</label><input type="text" id="startedAt" /><br />
+			<label for="finishedAt">klaar:</label><input type="text" id="finishedAt" />
+            <label for="amount">hoeveelheid/tijd:</label><input type="text" id="amount" />
+			<button onclick="voegToe()" type="button">Toevoegen</button>
+		</div>
+	</div>
+
+	<div id="appLogin" style="visibility: visible">
+		<form action="javascript:void(0);">
+			<input type="email" placeholder="mail" id="mail" required>
+			<input type="password" placeholder="wachtwoord" id="wachtwoord" required>
+			<button type="submit" onclick="login()">Login</button>
+		</form>
+	</div>
+
+
+	<footer>hello there</footer>
+</body>
+
+<script>
+	"use strict"
+	const apiBasis = "http://127.0.0.1:8000/api/"
+	const apiPrestatie = apiBasis + "prestaties"
+	const apiuser = apiBasis + "users"
+	const apiLogin = apiBasis + "login"
+	let access_token = undefined
+
+	let users = []
+	let prestaties = []
+
+	const laadprestaties = async () => {
+                //   console.log('laadprestaties', apiuser);
+		const response = await axios.get(apiuser, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + access_token
+			}
+		})
+		// console.log('laadprestaties na get', response);
+
+		if (response.status != 200) {
+			alert(`Fout bij het lezen van de users: ${response.status} (${response.statusText})`)
+			return
+		}
+		const json = await response.data
+
+		console.log(json)
+		access_token = json.access_token
+
+		let selectInhoud = ''
+		json.map(el => {
+			users[el.id] = el.name
+			selectInhoud += `<option value="${el.id}">${el.name}</option>`
+		})
+
+		document.querySelector("#users").innerHTML = selectInhoud
+  
+	}
+
+	const laadAlles = async () => {
+		console.log('Begin laadAlles', access_token)
+
+		const user = document.querySelector("#users").value
+		const apiAlles = `${apiuser}/${user}/prestaties?sort=id`
+
+
+		const response = await axios.get(apiAlles, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + access_token
+			}
+		})
+
+
+		if (response.status != 200){
+			alert(`Fout bij het lezen van de prestaties: ${response.status} (${response.statusText})` )
+			return
+		}
+
+		const json = await response.data
+		access_token = json.access_token
+		prestaties = json.data
+		console.log('Eind laadAlles', access_token)
+		toon()
+	}
+
+	const toon = () => {
+		let tabelInhoud = ''
+		prestaties.map(el => tabelInhoud += `<tr><td>${users[el.userId]}</td><td>${el.startedAt}</td><td>${el.finishedAt}</td><td>${el.amount}</td>
+					<td onclick="verwijder(${el.id})"> x </td></tr>`)
+		document.querySelector("#tabelInhoud").innerHTML = tabelInhoud
+	}
+
+	const laad = async () => {
+		console.log('laad, laadprestaties');
+		await laadprestaties()
+		console.log('laad, laadalles');
+		await laadAlles()
+	}
+
+	const voegToe = async () => {
+		// console.log('Begin voegToe', access_token)
+
+		var prestaties = {};
+
+		prestaties.excerciseId = document.querySelector("#users").value;
+		prestaties.startedAt = document.querySelector("#startedAt").value;
+		prestaties.finishedAt = document.querySelector("#finishedAt").value;
+        prestaties.amount = document.querySelector("#amount").value;
+
+		// console.log("voegtoe: ", werknemer)
+		// console.log("voegtoe: ", apiWerknemers)
+		const response = await axios.post(apiPrestatie, prestaties, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + access_token
+			}
+		})
+
+		// console.log('response', response)
+		if (response.status != 201) {
+			alert(`Fout bij het toevoegen van de werknemer: ${response.status} (${response.statusText})`)
+			return
+		}
+
+		const json = await response.data
+		access_token = json.access_token
+
+        document.querySelector("#users").value = ''
+		document.querySelector("#startedAt").value = ''
+		document.querySelector("#finishedAt").value = ''
+		document.querySelector("#amount").value = ''
+
+
+		// console.log('Einde voegToe', access_token)
+		await laadPrestatiesOefeningen()
+	}
+
+	const verwijder = async (id) => {
+		console.log("Begin verwijder: ", id, access_token)
+		const apiDelete = `${apiPrestatie}/${id}`
+		console.log("api", apiDelete)
+		const response = await axios.delete(apiDelete, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + access_token
+			}
+		})
+
+		if (response.status != 202) {
+			alert(`Fout bij het verwijderen van Prestaties: ${response.status} (${response.statusText})`)
+		}
+		const json = await response.data
+		access_token = json.access_token
+
+		prestaties = await response.data
+		console.log("Einde verwijder: ", id, access_token)
+		await laadAlles()
+	}
+
+	const login = async () => {
+		// console.log('Begin Login')
+		const user = {}
+		user.password = document.querySelector("#wachtwoord").value
+		user.email = document.querySelector("#mail").value
+
+		const respons = await axios.post(apiLogin, user, { headers: { 'Content-Type': 'application/json' } })
+		// console.log('respons', respons)
+		access_token = await respons.data.access_token
+		// console.log('access_token: ', access_token)
+
+		document.querySelector("#appLogin").style.visibility = "hidden"
+		document.querySelector("#appContent").style.visibility = "visible"
+		// console.log('Einde login')
+		await laad()
+	}	
+</script>
+
+</html>

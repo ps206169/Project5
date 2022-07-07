@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PrestatiesController;
+use App\Http\Controllers\OefeningenController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,8 +17,29 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('profile', function (Request $request) {
+        auth()->user();
+    });
+    Route::put('/prestaties/update/{id}',[PrestatiesController::class, 'update']);
+    Route::delete('prestaties/delete/{id}', [PrestatiesController::class, 'destroy']);
+
+    Route::apiResource('prestaties', PrestatiesController::class);
+    Route::get('users/{id}/prestaties', [PrestatiesController::class, 'index']);
+    Route::delete('users/{id}/prestaties', [PrestatiesController::class, 'destroy']);
+
+    Route::apiResource('users', UserController::class)
+        ->only(['index','show']);
 });
+Route::apiResource('oefeningen', OefeningenController::class)->parameters(['oefeningen' => 'oefening'])
+->only(['index', 'show']);
 
+
+Route::fallback(function(){
+    return response()->json([
+        'message' => 'Page Not Found. If error persists, contact info@website.com'], 404);
+});

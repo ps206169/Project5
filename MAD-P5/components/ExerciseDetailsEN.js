@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { ActivityIndicator } from 'react-native-paper';
 
 const ExerciseDetailsEN = (props) => {
-    const apiSelectedExercise = `https://eindopdrachtsummamove.nl/api/oefeningen/${props.route.params.id}`;
+    const apiSelectedExercise = `http://localhost:8000/api/oefeningen/${props.route.params.id}`;
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState(null);
 
