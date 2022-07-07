@@ -14,16 +14,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         
-        if($request->has('name')){
-            return User::where('name', 'like', '%'.$request->name.'%')->get();
-        }
-        if($request->has('sort')){
-            return User::orderBy($request->sort)->get();
-        }
-        return User::All();
+        $response = [
+            'success' => true,
+            'data'    => User::All(),
+            // 'data'    => Functie::with('prestaties')->get(),
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -55,7 +56,13 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return $user;
+        $response = [
+            'success' => true,
+            'data'    =>  $user,
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer'
+        ];
+        return response()->json($response, 200);  
     }
 
     /**

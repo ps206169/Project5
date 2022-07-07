@@ -16,13 +16,16 @@ class PrestatiesController extends Controller
      */
     public function index(Request $request)
     {
+        // Zie https://laravel.com/docs/9.x/sanctum
+
+        // Verwijder de actuele token
         $request->user()->currentAccessToken()->delete();
 
         try {
-            if($request->has('name')){
-                $data = prestaties::where('name', 'like', '%'.$request->name.'%')->get();
-            } else if($request->has('sort')){
-                $data = prestaties::orderBy($request->sort)->get();
+            if ($request->has('userId')) {
+                $data = prestaties::where('userId', 'like', '%' . $request->userId . '%')->get();
+            } else if ($request->has('sort')) {
+                $data =  prestaties::orderBy($request->sort)->get();
             } else {
                 $data = prestaties::all();
             }
@@ -32,18 +35,18 @@ class PrestatiesController extends Controller
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer',
             ];
-            return response()->json($content,200);
+            return response()->json($content, 200);
         } catch (\Throwable $th) {
-            Log::emergency('werknemers', ['error' => $th->getMessage()]);
+            Log::emergency('prestaties', ['error' => $th->getMessage()]);
 
             $content = [
-                'success'   => false,
-                'data'      => null,
-                'foutmelding' => 'Gegevens kunnen niet getoond worden',
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet getoond worden',
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
-                'token_type' => 'Bearer',
+                'token_type' => 'Bearer'
             ];
-            return response()->json($content,500);
+            return response()->json($content, 500);
         }
     }
 
@@ -55,48 +58,50 @@ class PrestatiesController extends Controller
      */
     public function store(Request $request)
     {
+        // Verwijder de actuele token
         $request->user()->currentAccessToken()->delete();
 
-        try{
+        try {
             Log::info(
-                'prestaties toevoegen',
-                ['ip' => $request->ip(),
+                'prestaties toevoegen', 
+                ['ip' => $request->ip(), 
                 'data' => $request->all(),
                 'user' => $request->user()->email
             ]);
             $validator = Validator::make($request->all(), [
-                'email' => 'email',
-                'name' => 'required'
+                'userId' => 'required',
+                'excerciseId' => 'required'
             ]);
-            if ($validator->fails()){
-                Log::error("Prestatie toevoegen fout");
+            if ($validator->fails()) {
+                Log::error("prestaties toevoegen Fout");
                 $content = [
-                    'success'   => false,
-                    'data'      => $request->all(),
+                    'success' => false,
+                    'data'    => $request->all(),
                     'foutmelding' => 'Data niet correct',
                     'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                     'token_type' => 'Bearer'
                 ];
-                return response()->json($content,400);
+                return response()->json($content, 400);
             } else {
                 $content = [
-                    'success'   => true,
-                    'data'      => prestaties::create($request->all()),
+                    'success' => true,
+                    'data'    => prestaties::create($request->all()),
                     'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                     'token_type' => 'Bearer'
                 ];
                 return response()->json($content, 201);
+                return prestaties::create($request->all());
             }
-        } catch (\throwable $th){
-            Log::emergency('Prestaties toevoegen', ['error' => $th->getMessage()]);
+        } catch (\Throwable $th) {
+            Log::emergency('prestaties toevoegen', ['error' => $th->getMessage()]);
             $content = [
-                'success'   => false,
-                'data'      => null,
-                'foutmelding' => 'Gegevens kunnen niet toegevoegd worden.',
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet toegevoegd worden.',
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
-            return response()->json($content,500);
+            return response()->json($content, 500);
         }
     }
 
@@ -106,24 +111,25 @@ class PrestatiesController extends Controller
      * @param  \App\Models\prestaties  $prestaties
      * @return \Illuminate\Http\Response
      */
-    public function show(prestaties $prestaties)
+    public function show(Request $request, prestaties $prestaties)
     {
+        // Verwijder de actuele token
         $request->user()->currentAccessToken()->delete();
-        try{
+        try {
             $content = [
-                'succes' => true,
-                'data'   => $prestaties,
+                'success' => true,
+                'data'    => $prestaties,
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
             return response()->json($content, 200);
-        }catch (\Throwable $th){
-            Log::emergency('Toon prestatie', ['error' => $th->getMessage()]);
+        } catch (\Throwable $th) {
+            Log::emergency('prestaties tonen', ['error' => $th->getMessage()]);
             $content = [
-                'succes' => false,
-                'data'   => null,
-                'foutmelding' => 'Gegevens kunnen niet getoond worden.',
-                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet getoond worden',
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
             return response()->json($content, 500);
@@ -137,38 +143,47 @@ class PrestatiesController extends Controller
      * @param  \App\Models\prestaties  $prestaties
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, prestaties $prestaties, $id)
+    public function update(Request $request, prestaties $prestaties)
     {
+        // Verwijder de actuele token
         $request->user()->currentAccessToken()->delete();
         try {
-            Log::info('prestatie wijzigen', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
-            $prestaties = prestaties::find($id);
-            $prestaties->update($request->all());
-            return $request->all();
-            $message = "prestatie is geupdate";
-            $content = [
-                'success' => true,
-                'data'    => $prestaties,
-                'message' => $message
-            ];
-            return response()->json($content, 300);
+            Log::info('prestaties wijzigen', ['ip' => $request->ip(), 'oud' => $prestaties, 'nieuw' => $request->all()]);
 
-
-        } catch (\Exception $th){
-            Log::channel('API')->error('Fout bij het updaten van Prestatie:'. $th->getMessages());
+            $validator = Validator::make($request->all(), [
+                'userId' => 'required',
+                'password' => 'email',
+            ]);
+            if ($validator->fails()) {
+                Log::error("prestaties wijzigen Fout");
+                $content = [
+                    'success' => false,
+                    'data'    => $request->all(),
+                    'foutmelding' => 'Gewijzigde data niet correct',
+                    'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+                return response()->json($content, 400);
+            } else {
+                $content = [
+                    'success' => $prestaties->update($request->all()),
+                    'data'    => $request->all(),
+                    'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                    'token_type' => 'Bearer'
+                ];
+                return response()->json($content, 200);
+            }
+        } catch (\Throwable $th) {
+            Log::emergency('prestaties wijzigen', ['error' => $th->getMessage()]);
             $content = [
-                'succes' => false,
-                'data'   => null,
-                'foutmelding' => 'Gegevens kunnen niet gewijzigd worden.',
-                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet gewijzigd worden.',
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
-
             ];
             return response()->json($content, 500);
         }
-
-        $prestaties->update($request->all());
-        return $prestaties;
     }
 
     /**
@@ -177,33 +192,60 @@ class PrestatiesController extends Controller
      * @param  \App\Models\prestaties  $prestaties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, prestaties $prestaties)
     {
+        // Verwijder de actuele token
         $request->user()->currentAccessToken()->delete();
-        try{
-            Log::info('Prestaties verwijderen', ['data' => $id]);
-            $data = prestaties::where('id', $id)->delete();
-            $message = "Prestaties is gone";
+        try {
+            Log::info('prestaties verwijderen', ['data' => $prestaties]);
+            $prestaties->delete();
 
             $content = [
-                'succes' => true,
-                'data'   => $data,
-                'message' => $message,
+                'success' => true,
+                'data'    => $prestaties,
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content, 202);
+        } catch (\Throwable $th) {
+            Log::emergency('prestaties verwijderen', ['error' => $th->getMessage()]);
+            $content = [
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet verwijderd worden.',
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'token_type' => 'Bearer'
+            ];
+            return response()->json($content, 500);
+        }
+    }
+
+    public function indexUser(Request $request, $id)
+    {
+        try {
+            if ($request->has('sort')) {
+                $data =  prestaties::where('userId', $id)->orderBy($request->sort)->get();
+            } else {
+                $data = prestaties::where('userId', $id)->get();
+            }
+
+            $content = [
+                'success' => true,
+                'data'    => $data,
                 'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
             return response()->json($content, 200);
-          }
-          catch(\Throwable $th){
-            Log::emergency('Prestaties verwijderen', ['error' => $th->getMessage()]);
+        } catch (\Throwable $th) {
+            Log::emergency('user per prestaties', ['error' => $th->getMessage()]);
             $content = [
-                'succes' => false,
-                'data'   => null,
-                'foutmelding' => 'Gegevens kunnen niet verwijderd worden.',
-                'acces_token' => auth()->user()->createToken('API Token')->plainTextToken,
+                'success' => false,
+                'data'    => null,
+                'foutmelding' => 'Gegegevens kunnen niet getoond worden',
+                'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
             return response()->json($content, 500);
-          }
+        }
     }
 }

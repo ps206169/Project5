@@ -97,7 +97,7 @@
 	let access_token = undefined
 
 	let users = []
-	let prestaties = []
+	let prestatie = []
 
 	const laadprestaties = async () => {
                 //   console.log('laadprestaties', apiuser);
@@ -120,7 +120,7 @@
 		access_token = json.access_token
 
 		let selectInhoud = ''
-		json.map(el => {
+		json.data.map(el => {
 			users[el.id] = el.name
 			selectInhoud += `<option value="${el.id}">${el.name}</option>`
 		})
@@ -152,14 +152,15 @@
 
 		const json = await response.data
 		access_token = json.access_token
-		prestaties = json.data
+		prestatie = json.data
 		console.log('Eind laadAlles', access_token)
 		toon()
 	}
 
 	const toon = () => {
 		let tabelInhoud = ''
-		prestaties.map(el => tabelInhoud += `<tr><td>${users[el.userId]}</td><td>${el.startedAt}</td><td>${el.finishedAt}</td><td>${el.amount}</td>
+		prestatie.map(el => 
+		tabelInhoud += `<tr><td>${users[el.userId]}</td><td>${el.startedAt}</td><td>${el.finishedAt}</td><td>${el.amount}</td>
 					<td onclick="verwijder(${el.id})"> x </td></tr>`)
 		document.querySelector("#tabelInhoud").innerHTML = tabelInhoud
 	}
@@ -174,16 +175,16 @@
 	const voegToe = async () => {
 		// console.log('Begin voegToe', access_token)
 
-		var prestaties = {};
+		var prestatie = {};
 
-		prestaties.excerciseId = document.querySelector("#users").value;
-		prestaties.startedAt = document.querySelector("#startedAt").value;
-		prestaties.finishedAt = document.querySelector("#finishedAt").value;
-        prestaties.amount = document.querySelector("#amount").value;
+		prestatie.excerciseId = document.querySelector("#users").value;
+		prestatie.startedAt = document.querySelector("#startedAt").value;
+		prestatie.finishedAt = document.querySelector("#finishedAt").value;
+        prestatie.amount = document.querySelector("#amount").value;
 
 		// console.log("voegtoe: ", werknemer)
 		// console.log("voegtoe: ", apiWerknemers)
-		const response = await axios.post(apiPrestatie, prestaties, {
+		const response = await axios.post(apiPrestatie, prestatie, {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
@@ -207,7 +208,7 @@
 
 
 		// console.log('Einde voegToe', access_token)
-		await laadPrestatiesOefeningen()
+		await laadAlles()
 	}
 
 	const verwijder = async (id) => {
@@ -228,18 +229,18 @@
 		const json = await response.data
 		access_token = json.access_token
 
-		prestaties = await response.data
+		prestatie = await response.data
 		console.log("Einde verwijder: ", id, access_token)
 		await laadAlles()
 	}
 
 	const login = async () => {
 		// console.log('Begin Login')
-		const user = {}
-		user.password = document.querySelector("#wachtwoord").value
-		user.email = document.querySelector("#mail").value
+		const jsonstring = {}
+		jsonstring.password = document.querySelector("#wachtwoord").value
+		jsonstring.email = document.querySelector("#mail").value
 
-		const respons = await axios.post(apiLogin, user, { headers: { 'Content-Type': 'application/json' } })
+		const respons = await axios.post(apiLogin, jsonstring, { headers: { 'Content-Type': 'application/json' } })
 		// console.log('respons', respons)
 		access_token = await respons.data.access_token
 		// console.log('access_token: ', access_token)

@@ -86,7 +86,8 @@ class PrestatiesController extends Controller
                     'token_type' => 'Bearer'
                 ];
                 return response()->json($content, 201);
-            }
+                return prestaties::create($request->all());     
+             }
         } catch (\throwable $th){
             Log::emergency('Prestaties toevoegen', ['error' => $th->getMessage()]);
             $content = [
